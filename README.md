@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # README
 
 This README would normally document whatever steps are necessary to get the
@@ -22,3 +23,6 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+=======
+# movies
+>>>>>>> c9767f910ad2464748c451435a6045320ab815c9
