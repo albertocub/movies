@@ -34,18 +34,20 @@
       </div> <!-- col-md-3 -->
     </div> <!-- end row -->  
     <div class="row">
-      <% @peliculas.each do |peli|%>
-        <div class="col-sm-6 col-md-4 col-lg-3">
-          <div class="latest-movie">
-            <a href="#"><img src="<%= peli.url %>" style="width:195px; height: 195px;margin-bottom:5px;"></a>
-            <p><b>Id:</b> <%= peli.id %></p>
-            <p><b>Nombre:</b> <%= peli.name %></p>
-            <p><b>Director:</b> <%= peli.director %></p>
-            <p><b>Año:</b> <%= peli.year %></p>
-            <p><b>Genero:</b> <%= peli.genre %></p>
-          </div>
-       </div><!-- end col --> 
-      <%end%>
+      <% if !@peliculas.nil? %>   
+        <% @peliculas.each do |peli| %>
+          <div class="col-sm-6 col-md-4 col-lg-3">
+            <div class="latest-movie">
+              <a href="#"><img src="<%= peli.url %>" style="width:195px; height: 195px;margin-bottom:5px;"></a>
+              <p><b>Id:</b>&nbsp;<%= peli.id %></p>
+              <p><b>Nombre:</b>&nbsp;<%= peli.name %></p>
+              <p><b>Director:</b>&nbsp;<%= peli.director %></p>
+              <p><b>Año:</b>&nbsp;<%= peli.year %></p>
+              <p><b>Genero:</b>&nbsp;<%= peli.genre %></p>
+            </div>
+         </div><!-- end col --> 
+        <%end%>
+      <%end%>    
     </div>
     <!-- PARCIAL FOOTER --> 
     <%= render "shared/footer" %>
