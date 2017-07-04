@@ -14,9 +14,9 @@
                 <td><%= peli.actor %></td>
                 <td><%= peli.year %></td>
                 <td align="center">
-                  <%= link_to '', pelicula_path(peli), :title => "Visualizar", :class => 'btn btn-sm btn-success fa fa-1x fa-search', style:"color: white;" %>
-                  <%= link_to '', edit_pelicula_path(peli), :title => "Editar", :class => 'btn btn-sm btn-primary fa fa-1x fa-edit', style:"color: white;" %>
-                  <%= link_to '', { action: :destroy, id: peli.id }, method: :delete, :title => "Eliminar",:class => 'btn btn-sm btn-danger fa fa-1x fa-close', style:"color: white;" %>
+                  <%= link_to '', pelicula_path(peli), :title => "Visualizar", :class => 'btn btn-sm btn-success fa fa-1x fa-search nodecor', style:"color: white;" %>
+                  <%= link_to '', edit_pelicula_path(peli), :title => "Editar", :class => 'btn btn-sm btn-primary fa fa-1x fa-edit nodecor', style:"color: white;" %>
+                  <%= link_to '', { action: :destroy, id: peli.id }, method: :delete, :title => "Eliminar",:class => 'btn btn-sm btn-danger fa fa-1x fa-close nodecor', style:"color: white;" %>
                 </td>
               </tr>
             <%end%>
