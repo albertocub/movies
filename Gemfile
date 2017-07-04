@@ -53,7 +53,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
 gem 'font-awesome-rails'
 
-#user and admin user authentication
+# User and admin user authentication
 gem 'devise'
  
 #gem 'bcrypt','~>3.1.11'  
@@ -68,12 +68,11 @@ gem 'rails-i18n'
 gem 'stripe'
 
 gem 'sidekiq', '~> 5.0', '>= 5.0.3'
+gem 'sidekiq-status'
 
-#Gema para que funcionen las variables de entorno
+# Gema para que funcionen las variables de entorno
 gem 'dotenv-rails'
 
 gem 'redis', '~> 3.3', '>= 3.3.3'
 
-gem 'sinatra', require: false
-gem 'slim'
-gem 'sidekiq-status'
+

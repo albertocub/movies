@@ -84,7 +84,7 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-# Dani devise+sidekiq below required for Gem Devise
+  # Dani devise+sidekiq below required for Gem Devise
   #config.action_mailer.default_url_options = { :host => 'movies3000.herokuapp.com' }
   config.action_mailer.default_url_options = { :host => ENV["DOMAIN"] }
   config.action_mailer.delivery_method = :smtp
