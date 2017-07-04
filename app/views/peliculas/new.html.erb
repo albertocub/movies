@@ -14,8 +14,7 @@
                         </div> 
                         <div class="field">
                             <%= f.text_field :actor, placeholder: "Actor", class:"form-control" %>
-                        </div> 
-                        
+                        </div>  
                         <div class="field">
                             <%= f.text_field :email_contact, placeholder: "Email", class:"form-control" %>
                         </div> 
@@ -28,11 +27,9 @@
                         <div class="field">
                             <%= f.text_field :stars, placeholder: "Stars", class:"form-control" %>
                         </div> 
-
                         <div class="field">
                            <%= f.select :country, options_for_country, :prompt => 'Select Country', class:'form-control' %>
-                        </div>   
-
+                        </div> 
                         <div class="field">
                             <%= f.text_field :year, placeholder: "Año", class:"form-control" %>
                         </div>    
@@ -46,7 +43,7 @@
                             <%= f.text_field :precio, placeholder: "Precio", class:"form-control" %>
                         </div> 
                         <div class="field">
-                            <%= f.text_field :genre, placeholder: "URL Imagen", class:"form-control" %>
+                            <%= f.text_field :url, placeholder: "URL Imagen", class:"form-control" %>
                         </div> 
                         <div class="field">
                             <%= f.submit "Guardar", class:"btn btn-sm btn-danger white pull-right", style:"margin-top: 15px;" %>
