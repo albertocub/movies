@@ -6,7 +6,6 @@
       <div class="row">
         <div class="box">
           <div class="alert"><i class="fa fa-th-large fa-1x color-blue"></i>&nbsp;Mostrar Pelicula</div>
-          <%= form_for(@pelicula) do |f| %>
             <div class="card fwhitesmoke" style="height: 450px !important;"> 
               <div class="col-sm-6">
                 <img src="<%= @pelicula.url%>" style="width: 421px; height: 400px;"/>
@@ -52,13 +51,12 @@
             </div> <!-- end field -->
             <div class="field">
               <label class="control-label">Precio:</label>
-              <p class="form-control"><%= @pelicula.precio/100 %></p>
+              <p class="form-control"><%= @pelicula.precio/100.0 %></p>
             </div> <!-- end field -->
             <div class="field">
               <label class="control-label">URL imagen:</label>
               <p class="form-control"><%= @pelicula.url %></p>
             </div> <!-- end field -->
-          <%end%>
           <div class="row">
             <div class="col-lg-12">
               <br/>
