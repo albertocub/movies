@@ -1,6 +1,6 @@
 class AddPonercolumnasToPeliculas < ActiveRecord::Migration[5.0]
   def change
-  rename_column :peliculas, :main_actor, :actor
+  #rename_column :peliculas, :main_actor, :actor
   add_column :peliculas, :email_contact, :string
   add_column :peliculas, :url, :text
   add_column :peliculas, :oscar, :boolean
