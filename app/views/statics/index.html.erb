@@ -38,7 +38,9 @@
         <% @peliculas.each do |peli| %>
           <div class="col-sm-6 col-md-4 col-lg-3">
             <div class="latest-movie">
-              <a href="#"><img src="<%= peli.url %>" style="width:195px; height: 195px;margin-bottom:5px;"></a>
+              <%= link_to pelicula_path(peli) do %>
+                <%= image_tag peli.url, class: "nodecor", style:"width:195px; height: 195px;margin-bottom:5px;" %>
+              <%end%>
               <p><b>Id:</b>&nbsp;<%= peli.id %></p>
               <p><b>Nombre:</b>&nbsp;<%= peli.name %></p>
               <p><b>Director:</b>&nbsp;<%= peli.director %></p>
