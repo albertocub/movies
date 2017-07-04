@@ -1,4 +1,4 @@
-class AddColumnasToPeliculas < ActiveRecord::Migration[5.0]
+class AddPonercolumnasToPeliculas < ActiveRecord::Migration[5.0]
   def change
   rename_column :peliculas, :main_actor, :actor
   add_column :peliculas, :email_contact, :string
@@ -9,6 +9,6 @@ class AddColumnasToPeliculas < ActiveRecord::Migration[5.0]
   add_column :peliculas, :country, :string
   add_column :peliculas, :revenue_amount, :integer
   add_column :peliculas, :genre, :string
-  add_column :peliculas, :precio, :integer
+  add_column :peliculas, :precio, :integer  
   end
 end
