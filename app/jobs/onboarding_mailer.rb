@@ -1,5 +1,4 @@
 class OnboardingMailer < ApplicationJob
-
 queue_as :default
 	def perform(user=nil)
 		unless user.is_a?(Array)

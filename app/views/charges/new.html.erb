@@ -1,22 +1,68 @@
-
-
-<%= form_tag charges_path do %>
-  <article>
-    <% if flash[:error].present? %>
-      <div>
-        <p><%= flash[:error] %></p>
-      </div>
-    <% end %>
-    <label class="amount">
-      <span>Amount: <%= @amount %> Euros</span>
-    </label>
-  </article>
-
-
-
-  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-          data-description="A month's subscription"
-          data-amount="<%= @amount %>"
-          data-locale="auto"></script>
-<% end %>
+<style>
+  .boxpay {
+    background:#fff;
+    margin-top: 10%;
+    margin: 0 auto;
+    transition:all 0.2s ease;
+    border:2px dashed #dadada;
+    width: 350px;
+    margin-top: 10px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    background-clip: padding-box;
+    padding:0 20px 20px 20px;
+    min-height:340px;
+  }
+  .boxpay:hover {
+    border:2px solid #525C7A; 
+    background-image: linear-gradient(white, whitesmoke)
+  }
+  .boxpay span.box-title {
+      color: #fff;
+      font-size: 24px;
+      font-weight: 300;
+      text-transform: uppercase;
+  }
+  .boxpay .box-content {
+    padding: 16px;
+    border-radius: 0 0 2px 2px;
+    background-clip: padding-box;
+    box-sizing: border-box;
+  }
+  .boxpay .box-content p {
+    color:#515c66;
+    text-transform:none;
+  }
+  .botonmarge {margin-left: 25% !important;}
+  .colteal {color:teal; font-weight: bold;}
+  .colblue {color:blue; font-weight: bold;}
+</style>
+<div class="container">
+  <div class="row">
+    <div class="col-md-2 text-center">
+      <% if flash[:error].present? %>
+        <div>
+          <p><%= flash[:error] %></p>
+        </div>
+      <%end%>
+      <%= form_tag charges_path do %>
+        <div class="boxpay">
+          <div class="box-content">
+            <h1 class="tag-title">Plan <%= @tipoplan %></h1>
+            <small>Payment subscription monthly</small>
+            <hr/>
+            <p>Subscripcion mensual al <span class="colblue">Plan <%= @tipoplan %></span> el pago se realiza mediante tarjeta de credito. Introduzca los datos de su tarjeta de credito y estara subscripto a nuestro plan mensual <span class="colteal"><%= @tipoplan %></span> y tambien a la subscripcion de nuestra revista mensual de forma gratuita.</p>
+            <h3 class="text-center">Precio: <%= @amount/100.0 %> Euros</h3>
+            <div class="botonmarge">
+            <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+              data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+              data-description="A month's subscription"
+              data-amount="<%= @amount %>"
+              data-locale="auto"></script>                       
+            </div> <!-- end botonmarge --> 
+          </div> <!-- box-content -->
+        </div> <!-- box-pay -->
+      <%end%>
+    </div> <!-- col-md-2 --> 
+  </div> <!-- end row -->           
+</div> <!-- end container -->

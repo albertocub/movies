@@ -21,19 +21,19 @@
 
 en:
   mailer:
-    onboarding_mailer: "Welcome to L4wL3sSMovies!"
+    onboarding_mailer: "Welcome to MoviesToday!"
     mailer.onboarding_mailer_second_mailer: "Thanks for stay with us!"
     mailer.onboarding_mailer_third_mailer: "Get some live!"
-    subject_title_hml: "L4wL3sSMovies"
+    subject_title_hml: "MoviesToday"
   search:
     submit: "Search"
   payment:
     create_success: "Thanks for your donation!"
   setting:
-    create_success: "Succesful created!"
-    create_not_success: "Sorry, NOT Succesful created!"
+    create_success: "Succesful created setting!"
+    createnot: "Sorry, Not Succesful created!"
     update_success: "Succesful updated!"
-    update_not_success: "Sorry, NOT Succesful updated!"
+    updatenot: "Sorry, Not Succesful updated!"
   activerecord:
     errors:
       models:
