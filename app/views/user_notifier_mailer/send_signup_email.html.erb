@@ -2,27 +2,25 @@
 <html>
   <head>
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
-<style>
-.box_email {  
-    margin: 0 auto !important;
-    margin:10% !important;
-    padding: 25px;
-    background-color: whitesmoke;
-    border: 1px solid gray;
-    border-radius: 2px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-.textp {  color:gray; font-size: 16px; text-shadow: 2px 2px 4px #000000; }
-</style>
-
+    <style>
+      .box_email {  
+          margin: 0 auto !important;
+          margin:10% !important;
+          padding: 25px;
+          background-color: whitesmoke;
+          border: 1px solid gray;
+          border-radius: 2px;
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      }
+      .textp { color:gray; font-size: 16px; text-shadow: 2px 2px 4px #000000; }
+    </style>
   </head>
-  
   <body>
-  	<div class="box_email">
-    <h1>Thanks user <span style="color:red;"><%= @user.username %></span> for signing up</h1>
-    <h2>with email <span style="color:blue;"><%= @user.email %></span> width date <span style="color:teal; "><%= @user.created_at %></span></h2>
-    <p class="textp">Thanks for joining and have a great day! Now sign in and do
-awesome things!</p>
-	</div>
+    <div class="box_email">
+      <h1>Thanks user <span style="color:red;"><%= @user.username %></span> for signing up</h1>
+      <h2>with email <span style="color:blue;"><%= @user.email %></span> width date <span style="color:teal; "><%= @user.created_at %></span></h2>
+      <p class="textp">Thanks for joining and have a great day! Now sign in and do
+  awesome things!</p>
+  	</div>
   </body>
 </html>
