@@ -1,9 +1,17 @@
+<style>
+  .card {height:470px;}
+  .card:hover {opacity: 0.7;}
+  .card-block {padding:8%;}
+  .card-title {padding-bottom:10px;height:40px;}
+  .card-text {height:10px;}
+  .imgpeli {margin-top:-10px; width:100%; height: 260px;margin-bottom:5px;}
+</style>
 <!-- PARCIAL HEADER --> 
 <%= render "shared/header" %>
 <div class="estilosapp2">
   <!-- PARCIAL BOX SEARCHS --> 
   <%= render "shared/boxsearchs" %>
-  <div class="container" style="margin-top:35px;">
+  <div class="container">
     <div class="row">
       <div class="col-md-6"> 
         <div class="card" style="width:100%;">
@@ -37,20 +45,44 @@
       <% if !@peliculas.nil? %>   
         <% @peliculas.each do |peli| %>
           <div class="col-sm-6 col-md-4 col-lg-3">
-            <div class="latest-movie">
-              <%= link_to pelicula_path(peli) do %>
-                <%= image_tag peli.url, class: "nodecor", style:"width:195px; height: 195px;margin-bottom:5px;" %>
-              <%end%>
-              <p><b>Id:</b>&nbsp;<%= peli.id %></p>
-              <p><b>Nombre:</b>&nbsp;<%= peli.name %></p>
-              <p><b>Director:</b>&nbsp;<%= peli.director %></p>
-              <p><b>Año:</b>&nbsp;<%= peli.year %></p>
-              <p><b>Genero:</b>&nbsp;<%= peli.genre %></p>
-            </div>
-         </div><!-- end col --> 
+            <div class="card">
+                <%= link_to pelicula_path(peli) do %>
+                  <%= image_tag peli.url, class: "img-fluid nodecor imgpeli" %>
+                <%end%>
+                <div class="card-block">
+                  <h4 class="card-title"><%= peli.name %></h4>    
+                  <p class="card-text"><b>Director:</b>&nbsp;<%= peli.director %></p>
+                  <p class="card-text"><b>Actor:</b>&nbsp;<%= peli.actor %></p>
+                  <p class="card-text"><b>Año:</b>&nbsp;<%= peli.year %></p>
+                  <p class="card-text"><b>Genero:</b>&nbsp;<%= peli.genre %></p>
+              </div> <!--/.Card content-->
+            </div> <!--/.Card-->  
+          </div><!-- end col --> 
         <%end%>
       <%end%>    
-    </div>
+    </div><!-- end row -->
+    <div class="row">
+      <div class="col-lg-12 col-sm-6 col-md-6" style="margin-top:10px;padding-left:3%;padding-right:3%;">
+        <% if !@comentarios.nil? %>   
+          <table class="table table-hover table-striped" border="0">
+            <tbody>
+              <th class="success"></th>     
+              <th class="success">Name</th>   
+              <th class="success">Comment</th>    
+              <th class="success">Data</th>   
+            </tbody> 
+            <% @comentarios.each do |com| %>
+              <tr> 
+                <td><%= com.id %></td>
+                <td><%= com.name %></td> 
+                <td><%= com.comment  %></td>
+                <td><%= com.created_at.to_date %></td>
+              </tr> 
+            <%end%>
+          </table>    
+        <%end%>    
+      </div><!-- end col --> 
+    </div><!-- end row -->       
     <!-- PARCIAL FOOTER --> 
     <%= render "shared/footer" %>
   </div> <!-- end container -->  
