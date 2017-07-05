@@ -1,178 +1,134 @@
 <style>
-.c-movie-card {
-  position: relative;
-  box-shadow: 0 10px 50px rgba(0,0,0,0.19), 0 6px 50px rgba(0,0,0,0.23);  
-  border-radius:4px;
-  padding-bottom:20px;
-  background:white;
-  // black angled overlay
-  &:before {
-    content:'';
-    position: absolute;
-    width: 100%;
-    height:120px;
-    background: rgba(0,0,0,.42);
-    transform:skewY(9deg);
-    top:260px;
-    z-index: 9;
-  }
-  &:after {
-     content:'';
-    position: absolute;
-    width: 100%;
-    height:80px;
-    background: linear-gradient(to bottom, rgba(0,16,31,.3) 40%,rgba(0,0,0,.1) 100%);
-    transform:skewY(9deg);
-    top:180px;
-    z-index: 8;
-  }
-}
-.c-movie-card__btn-cont {
-  position: absolute;
-  top:40%;
-  left:30%;
-  z-index:1000;
-}
-svg.shopping {
-  width: 35%;
-  position: relative;
-  top:50%;
-  left:50%;
-  transform:translate(-50%,-50%); 
-  padding:20px;
-  border:1px solid rgba(255,255,255,.0);
-  transition:all .5s ease;
-}
-.c-movie-card__rating {
-  position:absolute;
-  background:white;
-  font-family: $font-family--primary;
-  font-weight: 300;
-  font-size: 1.2rem;
-  display:inline-block;
-  padding:32px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.25), 0 6px 30px rgba(0,0,0,0.29);
-  right:-8.25em;
-  top:1.75em;
-}
-.c-movie-card__img {
-  position: relative;
-  height:320px;
-  background-size:280%;
-  background-position:75% 20%;
-  border-radius:4px 4px 0 0;
-  /* background-image: url("http://s3.foxfilm.com/foxmovies/production/films/104/images/gallery/martian-gallery3-gallery-image.jpg"); */
-   &:after{
-    content:'';
-    display:block;
-    width: 100%;
-    height: 20%;
-     transform: skewY(-8deg);
+  .c-movie-card {
+    position: relative;
+    box-shadow: 0 10px 50px rgba(0,0,0,0.19), 0 6px 50px rgba(0,0,0,0.23);  
+    border-radius:4px;
+    padding-bottom:20px;
+    height:460px;
     background:white;
-    position: absolute;
-    z-index:500;
-    bottom:-40px;
+    // black angled overlay
+    &:before {
+      content:'';
+      position: absolute;
+      width: 100%;
+      height:120px;
+      background: rgba(0,0,0,.42);
+      transform:skewY(9deg);
+      top:260px;
+      z-index: 9;
+    }
+    &:after {
+       content:'';
+      position: absolute;
+      width: 100%;
+      height:80px;
+      background: linear-gradient(to bottom, rgba(0,16,31,.3) 40%,rgba(0,0,0,.1) 100%);
+      transform:skewY(9deg);
+      top:180px;
+      z-index: 8;
+    }
   }
-}
-.c-movie-card__content {
-  padding-top:2rem;
-  position: relative;
-  color:#222222;
-  background:white;
-  z-index: 10;
-}
-.c-movie-card__title {
-  font-family: $font-family--primary;
-  font-weight: 400;
-  text-align: center;
-  margin-bottom: .5rem;
-}
-
-.c-movie-card__description {
-  width: 85%;
-  font-family: $font-family--primary;
-  font-weight: 300;
-  text-align: center;
-  margin:0 auto;
-}
-
-.c-icons__arow {
-  display:block;
-  width: 15%;
-  margin:0 auto;
-  margin-top: 3rem;
-}
+  .c-movie-card:hover { opacity: 0.7; }
+  .c-movie-card__btn-cont {
+    position: absolute;
+    top:40%;
+    left:30%;
+    z-index:1000;
+  }
+  .c-movie-card__rating {
+    position:absolute;
+    background:white;
+    font-family: $font-family--primary;
+    font-weight: 300;
+    font-size: 1.2rem;
+    display:inline-block;
+    padding:32px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.25), 0 6px 30px rgba(0,0,0,0.29);
+    right:-8.25em;
+    top:1.75em;
+  }
+  .c-movie-card__img {
+    position: relative;
+    height:320px;
+    background-size:280%;
+    background-position:75% 20%;
+    border-radius:4px 4px 0 0;
+    &:after{
+      content:'';
+      display:block;
+      width: 100%;
+      height: 20%;
+       transform: skewY(-8deg);
+      background:white;
+      position: absolute;
+      z-index:500;
+      bottom:-40px;
+    }
+  }
+  .c-movie-card__content {
+    padding-top:1.8rem;
+    position: relative;
+    color:#222222;
+    background:white;
+    z-index: 10;
+  }
+  .c-movie-card__title {
+    font-family: $font-family--primary;
+    font-weight: 400;
+    text-align: center;
+    margin-bottom: .5rem;
+  }
+  .c-movie-card__description {
+    width: 100%;
+    font-family: $font-family--primary;
+    font-size: 16px;
+    font-weight: 300;
+    text-align: center;
+    margin:0 auto;
+  }
+  .c-icons__arow {
+    display:block;
+    width: 15%;
+    margin:0 auto;
+    margin-top: 3rem;
+  }
 </style>
 <!-- PARCIAL HEADER --> 
 <%= render "shared/header" %>
 <br></br>
-	<h2 class="jumbotron text-center">Payment Plan Select</h2>
-<br>
-<div class="col-sm-6">
-  <div class="c-movie-card">
-    <div class="c-movie-card__img"><img class="img-responsive" src="https://us.123rf.com/450wm/jpgon/jpgon1610/jpgon161001082/63844924-illustration-of-an-isolated-film-camera-icon-with--the-text-buy-now.jpg?ver=6" style="width: 100%; height:300px;"/></div>
-    <div class="c-movie-card__content ">
-      <h1 class="c-movie-card__title">The Martian</h1>
-      <p class="c-movie-card__description">During a manned mission to Mars, Astronaut Mark Watney (Matt Damon) is presumed dead after a fierce storm and left behind by his crew.
-      </p>
-    </div><!-- c-movie-card__content -->
-  </div><!-- c-movie-card -->
-</div><!-- col-sm-6 -->
-
-<div class="col-sm-6">
-  <div class="c-movie-card">
-    <div class="c-movie-card__img"></div>
-    <div class="c-movie-card__content ">
-      <h1 class="c-movie-card__title">The Martian</h1>
-      <p class="c-movie-card__description">During a manned mission to Mars, Astronaut Mark Watney (Matt Damon) is presumed dead after a fierce storm and left behind by his crew.
-      </p>
-    </div><!-- c-movie-card__content -->
-  </div><!-- c-movie-card -->
-</div><!-- col-sm-6 -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <div class="container">
-	 
-	<div class="row" style="margin: 0px auto; border:1px solid gray;padding: 2px;">
-		<%= link_to new_charge_path(amount: @peliculafind.precio) do %>
-			<div class="col-md-6 well" style="height: 400px;border-radius: 10px; margin-left:2px;">
-				<div class="container-fluid text-center">
-					<img class="img-responsive" src="https://us.123rf.com/450wm/jpgon/jpgon1610/jpgon161001082/63844924-illustration-of-an-isolated-film-camera-icon-with--the-text-buy-now.jpg?ver=6" style="width: 96%; height: 270px;">
-					<h3><%= @peliculafind.name %></h3>
-					<h3>Precio: <%= @peliculafind.precio/100.0 %>€</h3>
-				</div>
-			</div>		
-		<%end%>	
-		<%= link_to select_monthly_subscription_path(@peliculafind.id) do %>
-			<div class="col-md-6 well" style="height: 400px;border-radius: 10px;">
-				<div class="container-fluid text-center">
-					<img class="img-responsive" src="http://st.depositphotos.com/2274151/4233/i/950/depositphotos_42330095-stock-photo-subscribe-now-blue-grunge-round.jpg" style="width: 96%; height: 270px;">
-					<h2> SUBSCRIBE NOW</h2>
-				</div>
-			</div>	
-		<%end%>	
+  <div class="row">
+    <br/>
+    <div class="page-header">
+      <h1>Payment Plan Select</h1>      
+    </div>	 
+    
+    <br>
+    <%= link_to new_charge_path(amount: @peliculafind.precio, user: current_user, pelicula: @peliculafind.name) do %>
+      <div class="col-sm-6">
+        <div class="c-movie-card">
+          <div class="c-movie-card__img"><%= image_tag @peliculafind.url, class: "img-responsive nodecor", style:"width:100%; height: 300px;border-bottom:3px solid gray;" %></div>
+          <div class="c-movie-card__content">
+            <h2 class="c-movie-card__title"><%= @peliculafind.name %></h2>
+            <p class="c-movie-card__description">Precio: <%= @peliculafind.precio/100.0 %>€</p>
+          </div><!-- c-movie-card__content -->
+        </div><!-- c-movie-card -->
+      </div><!-- col-sm-6 -->
+    <%end%> 
+    <%= link_to select_monthly_subscription_path(user: @user) do %>
+      <div class="col-sm-6">
+        <div class="c-movie-card">
+          <div class="c-movie-card__img"><img class="img-responsive" src="http://res.cloudinary.com/dlt8e13ma/image/upload/v1499270397/subscribe.jpg" style="width: 100%; height: 300px;border-bottom:3px solid gray;"></div>
+          <div class="c-movie-card__content">
+            <h2 class="c-movie-card__title">SUBSCRIBE NOW</h2>
+            <p class="c-movie-card__description"></p>
+          </div><!-- c-movie-card__content -->
+        </div><!-- c-movie-card -->
+      </div><!-- col-sm-6 -->
+    <%end%>  
+    <br></br>
 	</div> <!-- end row -->
 	<!-- <%=debug params %> -->
 	<!-- PARCIAL FOOTER --> 
-  	<%= render "shared/footer" %>
+  <%= render "shared/footer" %>
 </div> <!-- end container -->

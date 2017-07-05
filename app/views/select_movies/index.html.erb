@@ -15,7 +15,7 @@
             <p><b>Año:</b> <%= peli.year %></p>
             <p><b>Genero:</b> <%= peli.genre %></p>
             <p><b>Precio:</b> <%= peli.precio/100.0 %></p>
-            <%= link_to select_plan_path(pelicula: peli.id), class: "btn btn-primary white" do %>
+            <%= link_to select_plan_path(pelicula: peli.id, user: current_user), class: "btn btn-primary white" do %>
               <i class="fa fa-search"></i> 
               <%= t('Comprar') %>
             <%end%>

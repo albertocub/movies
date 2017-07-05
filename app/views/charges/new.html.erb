@@ -11,7 +11,7 @@
     border-radius: 5px;
     background-clip: padding-box;
     padding:0 20px 20px 20px;
-    min-height:340px;
+    min-height:390px;
   }
   .boxpay:hover {
     border:2px solid #525C7A; 
@@ -36,6 +36,7 @@
   .botonmarge {margin-left: 25% !important;}
   .colteal {color:teal; font-weight: bold;}
   .colblue {color:blue; font-weight: bold;}
+  .back {float:right; margin-top: 10px; margin-bottom:10px !important; padding:6px; background-color: teal; color:white;border-radius: 5px;text-decoration:none;}
 </style>
 <div class="container">
   <div class="row">
@@ -48,18 +49,26 @@
       <%= form_tag charges_path do %>
         <div class="boxpay">
           <div class="box-content">
-            <h1 class="tag-title">Plan <%= @tipoplan %></h1>
-            <small>Payment subscription monthly</small>
-            <hr/>
-            <p>Subscripcion mensual al <span class="colblue">Plan <%= @tipoplan %></span> el pago se realiza mediante tarjeta de credito. Introduzca los datos de su tarjeta de credito y estara subscripto a nuestro plan mensual <span class="colteal"><%= @tipoplan %></span> y tambien a la subscripcion de nuestra revista mensual de forma gratuita.</p>
-            <h3 class="text-center">Precio: <%= @amount/100.0 %> Euros</h3>
+            <% if !@tipoplan.blank? %>
+              <h1 class="tag-title">Plan <%= @tipoplan %></h1>
+              <small>Payment subscription monthly</small>
+              <hr/>
+              <p>Subscripcion mensual al <span class="colblue">Plan <%= @tipoplan %></span> el pago se realiza mediante tarjeta de credito. Introduzca los datos de su tarjeta de credito y estara subscripto a nuestro plan mensual <span class="colteal"><%= @tipoplan %></span> y tambien a la subscripcion de nuestra revista mensual de forma gratuita.</p>
+            <%else%>
+              <h1 class="tag-title"><%= @pelicula %></h1>
+              <small>Payment film</small>
+              <hr/>
+              <p>Ha escogido la pelicula <span class="colblue"><%= @pelicula %></span> el pago se realiza mediante tarjeta de credito. Introduzca los datos de su tarjeta de credito y se le enviara a su domicilio el producto que haya escogido. Si lo desea tambien puede subscribirse a uno de nuestros planes de subscripcion con varios descuentos.</p>  
+            <%end%>
+            <h3 class="text-center">Precio: <%= @amount.to_f/100.0 %> Euros</h3>
             <div class="botonmarge">
-            <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+              <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
               data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
               data-description="A month's subscription"
               data-amount="<%= @amount %>"
               data-locale="auto"></script>                       
             </div> <!-- end botonmarge --> 
+            <%= link_to 'Back', select_movies_path, class: "back", title:"Return to Select Movies" %><br/>
           </div> <!-- box-content -->
         </div> <!-- box-pay -->
       <%end%>

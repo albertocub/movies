@@ -7,11 +7,13 @@ before_action :authenticate_user!
     @@user = @user
     @amount = 500
     @@amount = @amount
+    @pelicula = ""
     @@subscript = ""
     @tipoplan = ""
     if params[:amount]
       @amount = params[:amount]
       @@amount = @amount
+      @pelicula = params[:pelicula]
     elsif params[:plan] == "bronze"
       @amount = 999
       @@amount = @amount
@@ -28,6 +30,8 @@ before_action :authenticate_user!
       @@subscript = params[:plan]
       @tipoplan = "Gold"
     end
+    
+
   end
   def create
     # Amount in cents

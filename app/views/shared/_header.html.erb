@@ -73,8 +73,8 @@
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= current_user.email %> <b class="caret"></b></a> 
                 <ul class="dropdown-menu" style="padding: 20px;">
                   <li class="dropdown-header bgreen">PROFILE</li>
-                  <li><%= link_to '<i class="fa fa-address-book"></i>&nbsp;Settings'.html_safe, settings_path, class:"btn btn-primary size13 white", style:"margin-top: 15px; margin-bottom: 5px;" %></li>   
-                  <li><%= link_to '<i class="fa fa-sign-out fa-3"></i>&nbsp;Sign Out'.html_safe, destroy_user_session_path, method: :delete, class:"btn btn-danger size13 white" %></li>   
+                  <li><%= link_to '<i class="fa fa-address-book"></i>&nbsp;Settings'.html_safe, settings_path, class:"btn btn-primary size13 white nodecor", style:"margin-top: 15px; margin-bottom: 5px;" %></li>   
+                  <li><%= link_to '<i class="fa fa-sign-out fa-3"></i>&nbsp;Sign Out'.html_safe, destroy_user_session_path, method: :delete, class:"btn btn-danger size13 white nodecor" %></li>   
                 </ul> 
               </li><!-- end dropdown --> 
             <%else%> 
