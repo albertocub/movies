@@ -95,14 +95,11 @@
 </style>
 <!-- PARCIAL HEADER --> 
 <%= render "shared/header" %>
-<br></br>
 <div class="container">
   <div class="row">
-    <br/>
     <div class="page-header">
       <h1>Payment Plan Select</h1>      
     </div>	 
-    
     <br>
     <%= link_to new_charge_path(amount: @peliculafind.precio, user: current_user, pelicula: @peliculafind.name) do %>
       <div class="col-sm-6">

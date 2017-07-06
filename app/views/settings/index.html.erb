@@ -1,5 +1,6 @@
 <style>
 	.background {
+		margin-top:0px;
 		background: #1A2980;   
 		background: -webkit-linear-gradient(to right, #26D0CE, #1A2980);   
 		background: linear-gradient(to right, #26D0CE, #1A2980);  
@@ -7,8 +8,8 @@
 	input { text-indent: 20px; font-weight: bold;}
 	.btn { text-decoration: none;  }
 	.card:hover {  opacity: 0.9; } 
-	.card, .hovercard { box-shadow: 1px 2px 3px grey; }
-	.contawhite {background-color: white; }
+	.card, .hovercard { width:350px;border: 1px solid gray; box-shadow: 1px 2px 3px grey; }
+	.contawhite {background-color: white;margin-top:0px;}
 </style>
 <!-- PARCIAL HEADER --> 
 <%= render "shared/header" %>
@@ -16,12 +17,12 @@
 <div class="background"> 
 	<div class="container contawhite">  
 		<div class="row"> 
-		    <div class="col-md-4" style="margin-top: 9%;"> 
+		    <div class="col-sm-4"> 
 				<!-- CARD & PHOTO -->
-				<div class="card hovercard" style="border: 1px solid gray;">
+				<div class="card hovercard">
 		            <div class="cardheader"></div>
 		            <div class="avatar"> 
-		                <img alt="" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png">
+		                <img alt="" src="http://res.cloudinary.com/dlt8e13ma/image/upload/v1499340625/avatar_2x.png"\>
 		            </div>
 		            <div class="info">
 		                <div class="title">
@@ -37,18 +38,16 @@
 		                <div class="desc">Tech geek</div>
 		            </div> <!-- end info -->
 		            <div class="bottom">
-		                <a class="btn btn-primary btn-twitter btn-sm" href="https://twitter.com/webmaniac">
+		                <a class="btn btn-primary btn-twitter btn-sm" href="https://twitter.com">
 		                    <i class="fa fa-2x fa-twitter"></i>
 		                </a>
-		                <a class="btn btn-danger btn-sm" rel="publisher"
-		                   href="https://plus.google.com/+ahmshahnuralam">
+		                <a class="btn btn-danger btn-sm" rel="publisher" href="https://plus.google.com">
 		                    <i class="fa fa-2x fa-google-plus"></i>
 		                </a>
-		                <a class="btn btn-primary btn-sm" rel="publisher"
-		                   href="https://plus.google.com/shahnuralam">
+		                <a class="btn btn-primary btn-sm" rel="publisher" href="https://www.facebook.com">
 		                    <i class="fa fa-2x fa-facebook"></i>
 		                </a>
-		                <a class="btn btn-warning btn-sm" rel="publisher" href="https://plus.google.com/shahnuralam">
+		                <a class="btn btn-warning btn-sm" rel="publisher" href="https://plus.google.com">
 		                    <i class="fa fa-2x fa-behance"></i>
 		                </a>
 		                <br></br> 
@@ -61,8 +60,8 @@
 		        </div> <!-- card hovercard -->
 			</div> <!-- col-md-4 -->  
 			<!-- SETTINGS TABLA --> 
-			<div class="col-md-8" style="margin-top: 9%;">
-				</br> 
+			<div class="col-lg-8 col-md-8 col-sm-8">
+				<br/>
 				<blockquote class="block-tipo"><h2>Settings</h2></blockquote>	 
 				<!-- SI ES DIFERENTE A NULL VISUALIZAR DATOS -->
 				<%if !@setting.nil?%>  

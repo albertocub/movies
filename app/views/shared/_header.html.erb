@@ -1,77 +1,79 @@
 <div class="estilosapp2">
-  <!-- NAVBAR BEGIN  -->
-  <nav id="logo" class="navbar navbar-fixed navbar-default" role="navigation" style="margin-bottom:-1px; border:1px solid #088A29;">
-    <div class="container">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapsable">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <!-- BRAND -->
-        <%=link_to "", root_path, class:"navbar-brand" ,id:"brand-logo" %> 
-      </div>
-      <!-- NAVBAR DROPDOWNS-->
-      <div class="collapse navbar-collapse" id="navbar-collapsable">
-        <ul class="nav navbar-nav foo" id="menu">
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">MOVIES & DVDs<b class="caret"></b></a>
-            <ul class="dropdown-menu" style="padding: 20px; ">
-              <li class="dropdown-header bgreen">MOVIES & DVDs</li>
-              <b class="caret"></b>
-              <li><%= link_to 'Peliculas', peliculas_path %></li>
-              <li></li>
-              <li><%= link_to 'About', about_path %></li>
-              <li class="divider"></li>
-              <li><a href="/admin">Admin Dashboard</a></li>
-              <li><a href="/admin/users">Users</a></li>
-            </ul>
-          </li><!-- end dropdown -->
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">TV<b class="caret"></b></a>
-            <ul class="dropdown-menu" style="padding: 20px; ">
-              <li class="dropdown-header bgreen">TV</li>
-              <b class="caret"></b>
-              <li><a href="/one">One</a></li>
-              <li><a href="/two">Two</a></li>
-              <li><a href="/three">Three</a></li>
-              <li class="divider"></li>
-              <li><a href="/admin">Admin Dashboard</a></li>
-              <li><a href="/admin/users">Users</a></li>
-            </ul>
-          </li><!-- end dropdown -->
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">NEWS<b class="caret"></b></a>
-            <ul class="dropdown-menu" style="padding: 20px; ">
-              <li class="dropdown-header bgreen">NEWS</li>
-              <b class="caret"></b>
-              <li><a href="/one">One</a></li>
-              <li><a href="/two">Two</a></li>
-              <li><a href="/three">Three</a></li>
-              <li class="divider"></li>
-              <li><a href="/admin">Admin Dashboard</a></li>
-              <li><a href="/admin/users">Users</a></li>
-            </ul>
-          </li><!-- end dropdown -->
-        </ul><!-- end nav navbar-nav -->
-        <ul class="nav navbar-nav navbar-right" align="right">
-          <li><%= link_to "Nosotros", about_path, style:"float:left; color:white" %></li> 
-            <% if user_signed_in? %> 
-              <li class="dropdown"> 
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= current_user.email %> <b class="caret"></b></a> 
-                <ul class="dropdown-menu" style="padding: 20px;">
-                  <li class="dropdown-header bgreen">PROFILE</li>
-                  <li><%= link_to '<i class="fa fa-address-book"></i>&nbsp;Settings'.html_safe, settings_path, class:"btn btn-primary size13 white nodecor", style:"margin-top: 15px; margin-bottom: 5px;" %></li>   
-                  <li><%= link_to '<i class="fa fa-sign-out fa-3"></i>&nbsp;Sign Out'.html_safe, destroy_user_session_path, method: :delete, class:"btn btn-danger size13 white nodecor" %></li>   
-                </ul> 
-              </li><!-- end dropdown --> 
-            <%else%> 
-              <li><%=link_to "Login", new_user_session_path, style:"color:white" %> </li>
-              <li><%=link_to "Sign up", new_user_registration_path, style:"color:white" %> </li> 
-            <%end%> 
-        </ul><!-- end nav navbar-nav -->
-      </div><!-- collapse navbar-collapse -->
-    </div><!-- end container -->
-  </nav><!-- end nav --> 
-</div> <!-- end estilosapp2 -->
+  <div class="row">
+    <!-- NAVBAR BEGIN  -->
+    <nav id="logo" class="navbar navbar-fixed navbar-default" role="navigation" style="margin-bottom:-1px; border-bottom: 2px solid #173B0B;">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapsable">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <!-- BRAND -->
+          <%=link_to "", root_path, class:"navbar-brand" ,id:"brand-logo" %> 
+        </div>
+        <!-- NAVBAR DROPDOWNS-->
+        <div class="collapse navbar-collapse" id="navbar-collapsable" style="margin-top:41px;">
+          <ul class="nav navbar-nav foo" id="menu" >
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">MOVIES & DVDs<b class="caret"></b></a>
+              <ul class="dropdown-menu" style="padding: 20px; ">
+                <li class="dropdown-header bgreen">MOVIES & DVDs</li>
+                <b class="caret"></b>
+                <li><%= link_to 'Peliculas', peliculas_path %></li>
+                <li></li>
+                <li><%= link_to 'About', about_path %></li>
+                <li class="divider"></li>
+                <li><a href="/admin">Admin Dashboard</a></li>
+                <li><a href="/admin/users">Users</a></li>
+              </ul>
+            </li><!-- end dropdown -->
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">TV<b class="caret"></b></a>
+              <ul class="dropdown-menu" style="padding: 20px; ">
+                <li class="dropdown-header bgreen">TV</li>
+                <b class="caret"></b>
+                <li><a href="/one">One</a></li>
+                <li><a href="/two">Two</a></li>
+                <li><a href="/three">Three</a></li>
+                <li class="divider"></li>
+                <li><a href="/admin">Admin Dashboard</a></li>
+                <li><a href="/admin/users">Users</a></li>
+              </ul>
+            </li><!-- end dropdown -->
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">NEWS<b class="caret"></b></a>
+              <ul class="dropdown-menu" style="padding: 20px; ">
+                <li class="dropdown-header bgreen">NEWS</li>
+                <b class="caret"></b>
+                <li><a href="/one">One</a></li>
+                <li><a href="/two">Two</a></li>
+                <li><a href="/three">Three</a></li>
+                <li class="divider"></li>
+                <li><a href="/admin">Admin Dashboard</a></li>
+                <li><a href="/admin/users">Users</a></li>
+              </ul>
+            </li><!-- end dropdown -->
+          </ul><!-- end nav navbar-nav -->
+          <ul class="nav navbar-nav navbar-right" align="right">
+            <li><%= link_to "Nosotros", about_path, style:"float:left; color:white" %></li> 
+              <% if user_signed_in? %> 
+                <li class="dropdown"> 
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= current_user.email %> <b class="caret"></b></a> 
+                  <ul class="dropdown-menu" style="padding: 20px;">
+                    <li class="dropdown-header bgreen">PROFILE</li>
+                    <li><%= link_to '<i class="fa fa-address-book"></i>&nbsp;Settings'.html_safe, settings_path, class:"btn btn-primary size13 white nodecor", style:"margin-top: 15px; margin-bottom: 5px;" %></li>   
+                    <li><%= link_to '<i class="fa fa-sign-out fa-3"></i>&nbsp;Sign Out'.html_safe, destroy_user_session_path, method: :delete, class:"btn btn-danger size13 white nodecor" %></li>   
+                  </ul> 
+                </li><!-- end dropdown --> 
+              <%else%> 
+                <li><%=link_to "Login", new_user_session_path, style:"color:white" %> </li>
+                <li><%=link_to "Sign up", new_user_registration_path, style:"color:white" %> </li> 
+              <%end%> 
+          </ul><!-- end nav navbar-nav -->
+        </div><!-- collapse navbar-collapse -->
+      </div><!-- end container -->
+    </nav><!-- end nav --> 
+  </div><!-- end estilosapp2 -->  
+</div> <!-- end row -->
