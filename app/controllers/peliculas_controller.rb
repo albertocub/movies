@@ -1,6 +1,8 @@
 class PeliculasController < ApplicationController
+  helper_method :sort_column, :sort_direction
   def index
-  	@peliculas = Pelicula.all
+  	#@peliculas = Pelicula.all
+    @peliculas = Pelicula.order("#{sort_column} #{sort_direction}")
   end
   def show
   	@pelicula = Pelicula.find(params[:id]) 
@@ -38,4 +40,13 @@ class PeliculasController < ApplicationController
     params.require(:pelicula).permit(:name, :director, :actor, :email_contact,
     :oscar, :category, :stars, :country, :year, :revenue_amount, :url, :genre, :precio)
   end  
+  def sortable_columns
+    ["id","name","actor","year"]
+  end
+  def sort_column
+    sortable_columns.include?(params[:column]) ? params[:column] : "id"
+  end
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+  end
 end
