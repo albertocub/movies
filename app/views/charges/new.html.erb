@@ -62,11 +62,17 @@
             <%end%>
             <h3 class="text-center">Precio: <%= @amount.to_f/100.0 %> Euros</h3>
             <div class="botonmarge">
-              <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-              data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-              data-description="A month's subscription"
-              data-amount="<%= @amount %>"
-              data-locale="auto"></script>                       
+              <script
+                  src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                  data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+                  data-amount="<%= @amount %>"
+                  data-name="Payment"
+                  data-description="test"
+                  data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+                  data-locale="auto"
+                  data-zip-code="true"
+                  data-currency="eur">
+              </script>                      
             </div> <!-- end botonmarge --> 
             <%= link_to 'Back', select_movies_path, class: "back", title:"Return to Select Movies" %><br/>
           </div> <!-- box-content -->
