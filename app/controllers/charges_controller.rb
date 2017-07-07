@@ -30,8 +30,6 @@ before_action :authenticate_user!
       @@subscript = params[:plan]
       @tipoplan = "Gold"
     end
-    
-
   end
   def create
     # Amount in cents
