@@ -7,13 +7,15 @@ before_action :authenticate_user!
     @@user = @user
     @amount = 500
     @@amount = @amount
+    @@pelicula = ""
     @pelicula = ""
     @@subscript = ""
     @tipoplan = ""
     if params[:amount]
       @amount = params[:amount]
       @@amount = @amount
-      @pelicula = params[:pelicula]
+      @@pelicula = params[:pelicula]
+      @pelicula=@@pelicula
     elsif params[:plan] == "bronze"
       @amount = 999
       @@amount = @amount
@@ -36,6 +38,7 @@ before_action :authenticate_user!
     @amount = @@amount
     @user = @@user
     @subscript = @@subscript
+    @pelicula = @@pelicula
     customer = Stripe::Customer.create(
       :email => params[:stripeEmail],
       :source  => params[:stripeToken]
@@ -51,13 +54,13 @@ before_action :authenticate_user!
     @payment.user_id = current_user.id
     @payment.active = true
     if @subscript == "bronze" || @subscript == "silver" || @subscript == "gold"
-      @payment.channel = "Stripe Plan Subscript"
+      @payment.channel = "Stripe Subscript ( plan "+@subscript+" )"
       @payment.subscription = true
       @payment.plan = true
       @payment.amount = @amount
       @payment.save
     else
-      @payment.channel = "Stripe Pay Film"
+      @payment.channel = "Stripe Pay Film Title: "+@pelicula
       @payment.subscription = false
       @payment.plan = false
       @payment.amount = @amount
