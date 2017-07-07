@@ -13,10 +13,11 @@
  *= require_tree .
  *= require_self
  *= require font-awesome
- *= require_directory .
+  *= require_directory .
  */
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
+@import "font-awesome";
 
 .border-form-div {
   margin: 0 auto !important;

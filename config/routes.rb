@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
    
 
+  get 'payments/index'
+
   get '/select_plan' => 'payment_select#select_plan', as: :select_plan
   get '/select_monthly_subscription' => 'payment_select#select_monthly_subscription', as: :select_monthly_subscription
   get 'select_movies/index'
@@ -31,7 +33,7 @@ Rails.application.routes.draw do
   resources :settings
   resources :charges
   resources :select_movies, only: :index
-  
+  resources :payments, only: :index
   #root 'peliculas#index', as: 'home'
   #added for method root_path (search)
   root :to => "statics#index"

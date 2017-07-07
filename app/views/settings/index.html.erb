@@ -125,30 +125,35 @@
 		</div>	 <!-- end row -->
 		<div class="row">
 			<div class="box2" style="margin-top: 20px; margin-left:20px; margin-right:20px;">
-				<blockquote class="block-tipo2"><h2>Payments</h2></blockquote>	
+				<blockquote class="block-tipo2"><h2>Last Payment</h2></blockquote>	
 				<%if !@payment.nil?%>  
-					<%@payment.each do |payment|%>
-			 			<table class="table table-hover table-striped" border="0">
-					        <tbody>
-					            <th class="success">Id</th>			
-					            <th class="success">Subscription</th>		
-					            <th class="success">Channel</th>		
-					            <th class="success">Active</th>		
-					            <th class="success">Plan</th>		
-					            <th class="success">Amount</th>		
-					        </tbody> 
-					            <tr> 
-						            <td><%= payment.id %></td>
-						            <td><%= payment.subscription %></td> 
-						            <td><%= payment.channel  %></td>
-						            <td><%= payment.active %></td>
-						            <td><%= payment.plan %></td>
-						            <td><%= payment.amount %></td>
-					            </tr> 
-					    </table>
-					<% end %>
-				<%else%>
-		  			<%= link_to 'Payment', new_charge_path, class:"btn btn-sm btn-success pull-center", style:"margin-right: 15px; margin-top: 10px; color:white; " %>
+			 		<table class="table table-hover table-striped" border="0">
+					    <tbody>
+					        <th class="success">Id</th>			
+					        <th class="success">User</th>			
+					        <th class="success">Date</th>			
+					        <th class="success">Hour</th>			
+					        <th class="success">Subscription</th>		
+					        <th class="success">Channel</th>		
+					        <th class="success">Active</th>		
+					        <th class="success">Plan</th>		
+					        <th class="success">Amount</th>		
+					    </tbody> 
+						<%@payment.each do |payment|%>
+					        <tr> 
+						        <td><%= payment.id %></td>
+						        <td><%= payment.user_id %></td>
+						        <td><%= payment.created_at.to_date %></td>
+						        <td><%= payment.created_at.strftime("%H:%M") %></td>
+						        <td><%= payment.subscription %></td> 
+						        <td><%= payment.channel  %></td>
+						        <td><%= payment.active %></td>
+						        <td><%= payment.plan %></td>
+						        <td><%= payment.amount/100.0 %>€</td>
+					        </tr> 
+					<%end%>
+					</table>
+		  			<%= link_to 'Show Payments', payments_path, class:"btn btn-sm btn-success nodecor pull-left", style:"margin-left: 5px; margin-top: 10px; color:white; " %>
 				<%end%>
 			</div> <!-- end box2 -->
 		</div> <!-- end row -->

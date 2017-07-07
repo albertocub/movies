@@ -50,7 +50,6 @@
 }
 /* CONTROLADOREJ2 */
 .controladorej2 { 
-    margin-top: 2%;
     font-family: 'Open Sans', sans-serif;    
     .alert {
         background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
@@ -78,19 +77,19 @@
     .control-label { margin-top: 9px !important;}
     .boxp { 
         background-color: white;
-        margin-top: 9%;
+        margin-top: 2%;
         padding:3%;
         border: 2px solid gray;
-        border-radius: 10px;
+        border-radius: 5px;
         box-shadow: 1px 2px 1px gray;    
         height:100%;
     }
     .box {
         background-color: white;
-        margin-top: 9%;
+        margin-top: 2%;
         padding:3%;
         border: 2px solid gray;
-        border-radius: 10px;
+        border-radius: 5px;
         box-shadow: 1px 2px 1px gray;    
         height:100%;
     }

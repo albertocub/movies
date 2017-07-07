@@ -1,5 +1,5 @@
 class SelectMoviesController < ApplicationController
-#Restringuimos a los usuarios que se hayan hecho Login
+#Restringuimos a los usuarios que no hayan hecho Login
 before_action :authenticate_user!
   def index
    	@peliculas = Pelicula.all

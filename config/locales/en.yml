@@ -30,6 +30,7 @@ en:
   payment:
     create_success: "Thanks for your donation!"
   setting:
+    welcome_user: "Welcome to MoviesToday! To buy movies or subscribe you must add your setting. "
     create_success: "Succesful created setting!"
     createnot: "Sorry, Not Succesful created!"
     update_success: "Succesful updated!"

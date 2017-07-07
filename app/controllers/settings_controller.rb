@@ -3,8 +3,8 @@ before_action :authenticate_user!
 layout "admin"
   def index
   	@setting = current_user.setting  
-    @payment = current_user.payments
-    flash[:success] = t('setting.create_success')
+    @payment = current_user.payments.all.order("created_at DESC").limit(1) 
+    flash[:success] = t('setting.welcome_user')
   end
   def show
   	@setting = Setting.find(params[:id])  

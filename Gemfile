@@ -53,6 +53,11 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
 gem 'font-awesome-rails'
 
+# Gem Sortable cols Tables with Boostrap
+#gem 'autoprefixer-rails'
+#gem 'bootstrap-table-rails'
+gem 'jquery-turbolinks'
+
 # User and admin user authentication
 gem 'devise'
  
@@ -60,6 +65,8 @@ gem 'devise'
 gem 'bcrypt', git: 'https://github.com/codahale/bcrypt-ruby.git', :require => 'bcrypt' 
 
 gem 'activeadmin', github: 'activeadmin'
+# Theme ActiveAdmin (Trouble with CSS app)
+# gem 'active_admin_flat_skin'
 
 gem 'cancancan', '~> 2.0'
 
@@ -75,4 +82,6 @@ gem 'dotenv-rails'
 
 gem 'redis', '~> 3.3', '>= 3.3.3'
 
-
+# gem 'nodejs-rails'
+# gem 'therubyracer',  platforms: :ruby
+gem 'execjs'

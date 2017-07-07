@@ -1,0 +1,44 @@
+<!-- PARCIAL HEADER --> 
+<%= render "shared/header" %>
+<div class="container">
+	<div class="row">
+			<div class="box2" style="margin-top: 20px; margin:20px 0 200px;">
+				<blockquote class="block-tipo2"><h2>List Payments User</h2></blockquote>	
+				<%if !@payment.nil?%>  
+			 		<table class="table table-hover table-striped sortable" border="0">
+					    <tbody>
+					        <th class="success"><%= sort_link "id" %></th>			
+					        <th class="success">User</th>			
+					        <th class="success"><%= sort_link "created_at" %></th>			
+					        <th class="success">Hour</th>			
+					        <th class="success">Subscription</th>		
+					        <th class="success">Channel</th>		
+					        <th class="success">Active</th>		
+					        <th class="success">Plan</th>		
+					        <th class="success"><%= sort_link "amount" %></th>		
+					    </tbody> 
+						<%@payment.each do |payment|%>
+					        <tr> 
+						        <td><%= payment.id %></td>
+						        <td><%= payment.user_id %></td>
+						        <td><%= payment.created_at.to_date %></td>
+						        <td><%= payment.created_at.strftime("%H:%M") %></td>
+						        <td><%= payment.subscription %></td> 
+						        <td><%= payment.channel  %></td>
+						        <td><%= payment.active %></td>
+						        <td><%= payment.plan %></td>
+						        <td><%= payment.amount/100.0 %>€</td>
+					        </tr> 
+						<%end%>
+					</table>
+				<%else%>
+					<hr>
+					<h3>No payment has been made yet!! No se ha realizado ningun pago todavia.</h3>
+					<hr/>     	
+				<%end%>
+				<%= link_to 'Back', settings_path, class:"btn btn-sm btn-success nodecor pull-left", style:"margin-left: 5px; margin-top: 10px; color:white; " %>
+			</div> <!-- end box2 -->
+	</div> <!-- end row -->
+	<!-- PARCIAL HEADER --> 
+	<%= render "shared/footer" %>
+</div><!-- end container -->
