@@ -49,15 +49,15 @@ before_action :authenticate_user!
     #current_user.payments.create(subscription: false, channel: "stripe", active: true, plan: 5, amount: 5)
     @payment = Payment.new
     @payment.user_id = current_user.id
-    @payment.channel = "Stripe"
     @payment.active = true
     if @subscript == "bronze" || @subscript == "silver" || @subscript == "gold"
+      @payment.channel = "Stripe Plan Subscript"
       @payment.subscription = true
       @payment.plan = true
       @payment.amount = @amount
       @payment.save
     else
-      # @payment.channel = "Stripe Pay Film"
+      @payment.channel = "Stripe Pay Film"
       @payment.subscription = false
       @payment.plan = false
       @payment.amount = @amount
