@@ -1,5 +1,6 @@
 <div class="estilosapp2">
   <div class="row">
+    <div class="col-sm-12 col-xs-12">
     <!-- NAVBAR BEGIN  -->
     <nav id="logo" class="navbar navbar-fixed navbar-default" role="navigation" style="margin-bottom:-1px; border-bottom: 2px solid #173B0B;">
       <div class="container">
@@ -55,8 +56,8 @@
                 <li><a href="/admin/users">Users</a></li>
               </ul>
             </li><!-- end dropdown -->
-          </ul><!-- end nav navbar-nav -->
-          <ul class="nav navbar-nav navbar-right" align="right">
+          
+          
             <li><%= link_to "Nosotros", about_path, style:"float:left; color:white" %></li> 
               <% if user_signed_in? %> 
                 <li class="dropdown"> 
@@ -71,9 +72,10 @@
                 <li><%=link_to "Login", new_user_session_path, style:"color:red !important;" %> </li>
                 <li><%=link_to "Sign up", new_user_registration_path, style:"color:red !important;" %> </li> 
               <%end%> 
-          </ul><!-- end nav navbar-nav -->
+           </ul><!-- end nav navbar-nav -->
         </div><!-- collapse navbar-collapse -->
       </div><!-- end container -->
     </nav><!-- end nav --> 
+  </div>
   </div><!-- end estilosapp2 -->  
 </div> <!-- end row -->
