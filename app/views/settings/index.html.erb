@@ -9,12 +9,13 @@
 	.btn { text-decoration: none;  }
 	.card:hover {  opacity: 0.9; } 
 	.card, .hovercard { width:350px;border: 1px solid gray; box-shadow: 1px 2px 3px grey; }
-	.contawhite {background-color: white;margin-top:0px;}
+	.contawhite {background-color: white; box-shadow: 2px 3px 4px grey;}
 </style>
 <!-- PARCIAL HEADER --> 
 <%= render "shared/header" %>
 <!-- BACKGROUND GRADIENT WEBPAGE -->
 <div class="background"> 
+	<br/>
 	<div class="container contawhite">  
 		<div class="row"> 
 		    <div class="col-sm-4"> 
@@ -157,9 +158,10 @@
 				<%end%>
 			</div> <!-- end box2 -->
 		</div> <!-- end row -->
-		<!-- PARCIAL HEADER --> 
-		<%= render "shared/footer" %>
+		<br/>
 	</div> <!-- end container -->
+<!-- PARCIAL HEADER --> 
+<%= render "shared/footer" %>
 </div> <!-- end background -->
 
 

@@ -11,11 +11,11 @@
 <%= render "shared/header" %>
 <!-- PARCIAL BOX SEARCHS --> 
 <%= render "shared/boxsearchs" %>   
-<div class="container">
-  <div class="estilosapp2">
+<div class="estilosapp2">
+  <div class="container">
     <div class="row">
       <% @peliculas.each do |peli|%>
-        <div class="col-lg-3 col-md-4 col-sm-6">
+        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
           <div class="latest-movie">
             <a href="#"><img src="<%= peli.url %>" class="img-responsive latest-movie-img"/></a>
             <div class="latest-movie-content">
@@ -36,11 +36,9 @@
         </div> <!-- end col -->
       <%end%>
     </div> <!-- end row-->
-  <!-- <%=debug params %> -->
-  <br/>
-  <!-- PARCIAL FOOTER --> 
-  <%= render "shared/footer" %>
-</div> <!-- end container -->
-
- 
-  
+    <!-- <%=debug params %> -->
+    <br/>
+  </div> <!-- end estilosapp2 -->
+</div> <!-- end container --> 
+<!-- PARCIAL FOOTER --> 
+<%= render "shared/footer" %>  

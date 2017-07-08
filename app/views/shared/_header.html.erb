@@ -1,6 +1,10 @@
+<style>
+@media (min-width: 768px) and (max-width: 991px) {
+    .navbar-right {margin-top:-100px; margin-right: -120px;}
+}
+</style>
 <div class="estilosapp2">
   <div class="row">
-    <div class="col-sm-12 col-xs-12">
     <!-- NAVBAR BEGIN  -->
     <nav id="logo" class="navbar navbar-fixed navbar-default" role="navigation" style="margin-bottom:-1px; border-bottom: 2px solid #173B0B;">
       <div class="container">
@@ -43,22 +47,9 @@
                 <li><a href="/admin/users">Users</a></li>
               </ul>
             </li><!-- end dropdown -->
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">NEWS<b class="caret"></b></a>
-              <ul class="dropdown-menu" style="padding: 20px; ">
-                <li class="dropdown-header bgreen">NEWS</li>
-                <b class="caret"></b>
-                <li><a href="/one">One</a></li>
-                <li><a href="/two">Two</a></li>
-                <li><a href="/three">Three</a></li>
-                <li class="divider"></li>
-                <li><a href="/admin">Admin Dashboard</a></li>
-                <li><a href="/admin/users">Users</a></li>
-              </ul>
-            </li><!-- end dropdown -->
-          
-          
             <li><%= link_to "Nosotros", about_path, style:"float:left; color:white" %></li> 
+          </ul><!-- end nav navbar-nav -->
+          <ul class="nav navbar-nav navbar-right"> 
               <% if user_signed_in? %> 
                 <li class="dropdown"> 
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= current_user.email %> <b class="caret"></b></a> 
@@ -69,13 +60,12 @@
                   </ul> 
                 </li><!-- end dropdown --> 
               <%else%> 
-                <li><%=link_to "Login", new_user_session_path, style:"color:red !important;" %> </li>
-                <li><%=link_to "Sign up", new_user_registration_path, style:"color:red !important;" %> </li> 
+                <li><%=link_to "Login", new_user_session_path, style:"color:white" %> </li>
+                <li><%=link_to "Sign up", new_user_registration_path, style:"color:white" %> </li> 
               <%end%> 
-           </ul><!-- end nav navbar-nav -->
+          </ul><!-- end nav navbar-nav -->
         </div><!-- collapse navbar-collapse -->
       </div><!-- end container -->
     </nav><!-- end nav --> 
-  </div>
   </div><!-- end estilosapp2 -->  
 </div> <!-- end row -->

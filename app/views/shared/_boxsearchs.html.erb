@@ -1,32 +1,32 @@
 <style>
-.boxsearchs {background-color:#0B610B;padding:10px;border-top: 2px solid #173B0B;}
-.boton_search {margin-left:-7px;height:36px;margin-top:-3px;color:#8064A2;}
+.boxsearchs {background-color:#0B610B;padding:5px;height:41px;font-size: 12px; border-top: 2px solid #173B0B;}
+.boton_search {margin-left:-8px;height:26px;margin-top:-3px;color:#8064A2;}
 </style>
-<div class="boxsearchs"> 
-  <!-- BUSQUEDA POR NAME DE PELICULA --> 
-  <div class="row">
+<div class="row">
+  <div class="boxsearchs"> 
+    <!-- BUSQUEDA POR NAME DE PELICULA --> 
     <div class="col-sm-3 col-xs-12" style="text-align:center;margin-bottom:2px;">
       <%= form_tag(root_path, :method => "get", id: "search-form", html: { class: 'form-horizontal col-sm-3'} ) do %>
-        <%= text_field_tag :search, params[:search], placeholder:"Buscar por Pelicula", :columns=>"50" %>
+        <%= text_field_tag :search, params[:search], placeholder:"Buscar por Pelicula", :columns=>"50", style:"height:25px;" %>
         <%= button_tag(type: 'submit', class: "btn btn-default boton_search") do %>
-          <i class="fa fa-search"></i>
+          <i class="fa fa-search" style="margin-top: -14px;"></i>
         <%end%>
       <%end%>
     </div><!-- end col-sm-3 -->
     <!-- BUSQUEDA POR AÑO DE LA PELICULA --> 
     <div class="col-sm-3 col-xs-12" style="text-align:center;margin-bottom:2px;">
       <%= form_tag(root_path, :method => "get", id: "search-year-form", html: { class: 'form-horizontal col-sm-3'} ) do %>
-        <%= text_field_tag :search_year, params[:search_year], placeholder: "Buscar por Año"  %>
+        <%= text_field_tag :search_year, params[:search_year], placeholder: "Buscar por Año", style:"height:25px;"  %>
         <%= button_tag(type: 'submit', class: "btn btn-default boton_search") do %>
-          <i class="fa fa-search"></i>
+          <i class="fa fa-search" style="margin-top: -14px;"></i>
         <%end%>        
       <%end%>
     </div> <!-- end col-sm-3 --> 
     <!-- BUSQUEDA POR EL GENERO EN UN DROPDOWN SELECT DE PELICULA --> 
     <div class="col-sm-6 col-xs-12" style="text-align:center;margin-bottom:2px;">
-      <div class="form-inline">
+      <div class="">
         <%= form_tag(root_path, :method => "get", id: "genre") do %>
-          <%= select_tag :search_genre, ("<option> Seleccionar Genero</option><br><option>ALL</option><option>ACTION</option><option>ADVENTURE</option><option>COMEDY</option><option>CRIME</option><option>DRAMA</option><option>HISTORICAL</option><option>HORROR</option><option>MUSICALS</option><option>SCIENCE-FICTION</option><option>WAR</option><option>WESTERNS</option>").html_safe, class: 'btn btn-primary', style:"width:225px;", :onchange => "this.form.submit()"%>
+          <%= select_tag :search_genre, ("<option> Seleccionar Genero</option><br><option>ALL</option><option>ACTION</option><option>ADVENTURE</option><option>COMEDY</option><option>CRIME</option><option>DRAMA</option><option>HISTORICAL</option><option>HORROR</option><option>MUSICALS</option><option>SCIENCE-FICTION</option><option>WAR</option><option>WESTERNS</option>").html_safe, class: 'btn btn-primary', style:"width:225px;font-size:12px;", :onchange => "this.form.submit()"%>
         <%end%>
       </div> 
     </div> <!-- end col-sm-6 --> 
