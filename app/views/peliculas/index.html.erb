@@ -1,4 +1,4 @@
-<div class="estilosapp2">
+
   <!-- PARCIAL HEADER --> 
   <%= render "shared/header" %>
   <div class="container"> 
@@ -22,7 +22,7 @@
                   <td><%= peli.name %></td>
                   <td><%= peli.actor %></td>
                   <td><%= peli.year %></td>
-                  <td align="center">
+                  <td align="center" style="width:160px;">
                     <%= link_to '', pelicula_path(peli), :title => "Visualizar", :class => 'btn btn-sm btn-success fa fa-1x fa-search nodecor', style:"color: white;" %>
                     <%= link_to '', edit_pelicula_path(peli), :title => "Editar", :class => 'btn btn-sm btn-primary fa fa-1x fa-edit nodecor', style:"color: white;" %>
                     <%= link_to '', { action: :destroy, id: peli.id }, method: :delete, :title => "Eliminar",:class => 'btn btn-sm btn-danger fa fa-1x fa-close nodecor', style:"color: white;" %>
@@ -37,8 +37,8 @@
         <h3>Only for registered users. Solo para los usuarios registrados!!</h3>
         <hr style="margin-bottom:400px;"/>
       <%end%>
-      <!-- PARCIAL FOOTER --> 
-      <%= render "shared/footer" %>
     </div> <!-- end controladorej2 -->
   </div> <!-- end container -->
 </div> <!-- end estilosapp2 -->
+<!-- PARCIAL FOOTER --> 
+<%= render "shared/footer" %>

@@ -8,7 +8,8 @@
 	input { text-indent: 20px; font-weight: bold;}
 	.btn { text-decoration: none;  }
 	.card:hover {  opacity: 0.9; } 
-	.card, .hovercard { width:350px;border: 1px solid gray; box-shadow: 1px 2px 3px grey; }
+	.card, .hovercard { width:100% !important;border: 1px solid gray; box-shadow: 1px 2px 3px grey; }
+	.card .info {padding:10px !important;}
 	.contawhite {background-color: white; box-shadow: 2px 3px 4px grey;}
 </style>
 <!-- PARCIAL HEADER --> 
@@ -18,7 +19,7 @@
 	<br/>
 	<div class="container contawhite">  
 		<div class="row"> 
-		    <div class="col-sm-4"> 
+		    <div class="col-sm-5"> 
 				<!-- CARD & PHOTO -->
 				<div class="card hovercard">
 		            <div class="cardheader"></div>
@@ -61,7 +62,7 @@
 		        </div> <!-- card hovercard -->
 			</div> <!-- col-md-4 -->  
 			<!-- SETTINGS TABLA --> 
-			<div class="col-lg-8 col-md-8 col-sm-8">
+			<div class="col-lg-7 col-md-7 col-sm-7">
 				<br/>
 				<blockquote class="block-tipo"><h2>Settings</h2></blockquote>	 
 				<!-- SI ES DIFERENTE A NULL VISUALIZAR DATOS -->

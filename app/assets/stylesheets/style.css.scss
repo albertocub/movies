@@ -35,18 +35,17 @@
     box-shadow: 1px 2px 1px gray;    
     height:100%;
 } 
-/* MEDIA QUERIES BOOTSTRAP */ 
 @media(max-width:767px){ 
-    .box, .boxp { margin-left: 2% !important; width: 600px; }
+    .box, .boxp { margin-left: auto !important; margin-right: auto !important; width:100% !important; }
 }
 @media(min-width:768px){ 
-    .box, .boxp { margin-left: 10% !important; width: 700px; }
+    .box, .boxp { margin-left: auto !important; margin-right: auto !important; width:100% !important; }
 }
 @media(min-width:992px){ 
-    .box, .boxp { margin-left: 15% !important; width: 800px; }
+    .box, .boxp { margin-left: auto !important; margin-right: auto !important; width:100% !important; }
 }
 @media(min-width:1200px){  
-     .box, .boxp { margin-left: 6% !important;  width: 1000px; }  
+    .box, .boxp { margin-left: auto !important; margin-right: auto !important; width:100% !important; }  
 }
 /* CONTROLADOREJ2 */
 .controladorej2 { 
@@ -96,16 +95,16 @@
     .box:hover, .boxp:hover { border: 2px solid blue; }
     .margin20 { margin-left: 20px; }   
     @media(max-width:767px){ 
-        .box, .boxp { margin-left: 2% !important; width: 600px; }
+        .box, .boxp { margin-left: auto !important; margin-right: auto !important; width:100% !important; }
     }
     @media(min-width:768px){ 
-        .box, .boxp { margin-left: 10% !important; width: 700px; }
+        .box, .boxp { margin-left: auto !important; margin-right: auto !important; width:100% !important; }
     }
     @media(min-width:992px){ 
-        .box, .boxp { margin-left: 15% !important; width: 800px; }
+        .box, .boxp { margin-left: auto !important; margin-right: auto !important; width:100% !important; }
     }
     @media(min-width:1200px){  
-        .box, .boxp { margin-left: 6% !important;  width: 1000px; }  
+        .box, .boxp { margin-left: auto !important; margin-right: auto !important; width:100% !important; }  
     }
 } /* END CONTROLADOREJ2 */
 

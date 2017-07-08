@@ -49,18 +49,17 @@
                     <li>El email no puede estar vacio.</li>
                     <li>El email tiene que tener el formato standard con el signo @</li>
                 </ol>  
-            </div> <!-- end box -->
-            <div class="row">
+                <hr/>
                 <div class="margin20">
                     <%= @pelicula.errors.full_messages.each do |message| %>
                         <div class="message be-red white top-space text-center">
                             * <%= message %>
                         </div>
                     <%end%>
-                </div> <!-- end margin20 -->        
-            </div> <!-- end row -->
-            <!-- PARCIAL FOOTER --> 
-            <%= render "shared/footer" %>
+                </div> <!-- end margin20 -->    
+            </div> <!-- end box -->
         </div> <!-- end controladorej2 -->
     </div> <!-- end container -->
 </div> <!-- end estilosapp2 -->
+<!-- PARCIAL FOOTER --> 
+<%= render "shared/footer" %>
