@@ -81,7 +81,6 @@ gem 'sidekiq-status'
 gem 'dotenv-rails'
 
 gem 'redis', '~> 3.3', '>= 3.3.3'
-
-# gem 'nodejs-rails'
-# gem 'therubyracer',  platforms: :ruby
+ 
 gem 'execjs'
+ 

@@ -4,43 +4,171 @@
   .card-block {padding:8%;}
   .card-title {padding-bottom:10px;height:40px;}
   .card-text {height:10px;}
-  .imgpeli {margin-top:-10px; width:100%; height: 260px;margin-bottom:5px;}
+  .imgpeli {margin-top:-10px; width:100%; height: 260px;margin-bottom:5px;} 
+  #myCarousel .carousel-caption {
+    left:0;
+    right:0;
+    bottom:0;
+    text-align:left;
+    padding:10px;
+    background:rgba(0,0,0,0.6);
+    text-shadow:none;
+    padding:0px 35px;
+    width:737px;
+  }
+  #myCarousel .carousel-caption h4>a {text-decoration: none; font-weight:bold; color: #81BEF7;}
+  #myCarousel .carousel-caption p {font-size: 13px;}
+  #myCarousel .list-group {position:absolute;top:0;right:0; text-shadow: 1px 2px 1px grey;}
+  #myCarousel .list-group-item {border-radius:0px;cursor:pointer;}
+  #myCarousel .list-group .active {background-color:#585858;border: 1px solid #A4A4A4;} 
+  .carousel-inner .item img {width:735px;height:400px;}
+  .list-group-item {width:395px; height:101px;background-color: #585858; color:white; padding:20px; border: 1px solid #A4A4A4;}
+  .list-group-item:hover {opacity: 0.7;}
+  .background-slider {
+    background: #000000;  
+    background: -webkit-linear-gradient(to right, #434343, #000000);  
+    background: linear-gradient(to right, #434343, #000000); 
+    box-shadow: 1px 3px 1px grey;
+  }
+  h1 {
+    font-size: 4rem;
+    font-weight: 900;
+    text-align: left;
+    margin: 2rem;
+    margin-left: 3rem;
+    text-transform: uppercase;
+    animation: background-move 10s infinite;
+    background: url(https://blog.spoongraphics.co.uk/wp-content/uploads/2012/retro-pattern/triangle-pattern.jpg);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  } 
+  @keyframes background-move {
+    0% {
+      background-position: 0% 0%;
+    }
+    25% {
+      background-position: 5% 10%;
+    }
+    50% {
+      background-position: 15% 15%;
+    }
+    75% {
+      background-position: 10% 5%;
+    }
+    100% {
+      background-position: 0% 0%;
+    }
+  }
+  @font-face {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    src: local("Open Sans"), local("OpenSans"), url(http://themes.googleusercontent.com/static/fonts/opensans/v7/cJZKeOuBrn4kERxqtaUH3bO3LdcAZYWl9Si6vvxL-qU.woff) format("woff");
+  } 
+  @media (min-width: 992px) { 
+    #myCarousel {padding-right:33.3333%;}
+    #myCarousel .carousel-controls {display:none;}  
+  }
+  @media (max-width: 991px) { 
+    .carousel-caption p,
+    #myCarousel .list-group {display:none;} 
+    h1 {font-size:26px;}
+    .navbar-brand {
+      margin-left: -140px !important;margin-right: 25px;
+    }
+  }
 </style>
+<!-- JAVASCRIPT -->  
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var clickEvent = false;
+  $('#myCarousel').carousel({
+    interval:   4000  
+  }).on('click', '.list-group li', function() {
+      clickEvent = true;
+      $('.list-group li').removeClass('active');
+      $(this).addClass('active');   
+  }).on('slid.bs.carousel', function(e) {
+    if(!clickEvent) {
+      var count = $('.list-group').children().length -1;
+      var current = $('.list-group li.active');
+      current.removeClass('active').next().addClass('active');
+      var id = parseInt(current.data('slide-to'));
+      if(count == id) {
+        $('.list-group li').first().addClass('active'); 
+      }
+    }
+    clickEvent = true;
+  });
+}) 
+$(window).load(function() {
+    var boxheight = $('#myCarousel .carousel-inner').innerHeight();
+    var itemlength = $('#myCarousel .item').length;
+    var triggerheight = Math.round(boxheight/itemlength+1);
+  $('#myCarousel .list-group-item').outerHeight(triggerheight);
+});
+</script> 
 <!-- PARCIAL HEADER --> 
 <%= render "shared/header" %>
 <div class="estilosapp2">
   <!-- PARCIAL BOX SEARCHS --> 
   <%= render "shared/boxsearchs" %>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6 col-sm-4"> 
-        <div class="card" style="width:100%;">
-          <img src="https://resizing.flixster.com/nQpr_LAyqR81PeN8b-mhZFtTUjU=/1100x480/v1.czsxMDI3NzM5ODtqOzE3Mzk4OzEyMDA7NTUwOzI0MA" alt="Avatar" style="width: 100%; height:300px;">
-          <div style="height: 100px; overflow:hidden;">
-            <h4><b>Pirates of Caribbean</b></h4> 
-            <p>Fans Thrilled By Trippiest Sequences</br> Yet in Episodes 3 </p> 
-          </div>
-        </div><!-- card --> 
-      </div><!-- col-md-6 -->
-      <div class="col-md-3 col-sm-4">
-        <div class="card" style="width:100%;">
-          <img src="https://resizing.flixster.com/Ex9j1BNynDvLDQWwSds4ROBTvAk=/540x480/v1.czsxMDI3NzQxMDtqOzE3Mzk4OzEyMDA7Mjc0OzI0MA" alt="Avatar" style="width: 100%; height:300px;">
-          <div style="height: 100px; overflow:hidden;">
-            <h4><b>Jane Doe</b></h4> 
-            <p>Fans Thrilled By Trippiest Sequences</br> Yet in Episodes 3 </p> 
-          </div>
-        </div><!-- card --> 
-      </div>  <!-- col-md-3 -->
-      <div class="col-md-3 col-sm-4">
-        <div class="card" style="width:100%;">
-          <img src="https://resizing.flixster.com/yhyWZmbOY7uzXRC7leDXOdj0FtY=/540x480/v1.czsxMDI3NzQwODtqOzE3Mzk4OzEyMDA7Mjc0OzI0MA" alt="Avatar" style="width: 100%; height:300px;">
-          <div  style="height: 100px; overflow:hidden;">
-            <h4><b>Jane Doe</b></h4> 
-            <p>Fans Thrilled By Trippiest Sequences</br> Yet in Episodes 3 </p>
-          </div>
-        </div><!-- card -->  
-      </div> <!-- col-md-3 -->
+    <div class="row background-slider">
+      <div class="col-md-12 col-sm-12">  
+         <div class="container">
+            <div id="myCarousel" class="carousel slide" data-ride="carousel">
+              <!-- Wrapper for slides -->
+              <div class="carousel-inner">
+                <div class="item active">
+                  <img src="http://res.cloudinary.com/dlt8e13ma/image/upload/v1497696468/Piratas_del_caribe_la_veganza_de_salazar_vg3aoi.jpg">
+                  <div class="carousel-caption">
+                    <h4><a href="#">Pirates of the Caribbean: Dead Men tell no tales</a></h4>
+                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat. <a class="label label-primary nodecor white" href="http://sevenx.de/demo/bootstrap-carousel/" target="_blank">More</a></p>
+                  </div>
+                </div><!-- End Item --> 
+                <div class="item">
+                  <img src="http://res.cloudinary.com/dlt8e13ma/image/upload/v1497696462/Guardianes_de_la_galaxia_vol2_mtassf.jpg">
+                  <div class="carousel-caption">
+                    <h4><a href="#">Guardians of the Galaxy Vol.2</a></h4>
+                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat. <a class="label label-primary nodecor white" href="http://sevenx.de/demo/bootstrap-carousel/" target="_blank">More</a></p>
+                  </div>
+                </div><!-- End Item --> 
+                <div class="item">
+                  <img src="http://res.cloudinary.com/dlt8e13ma/image/upload/v1498202875/Alien_covenant.jpg">
+                  <div class="carousel-caption">
+                    <h4><a href="#">Alien: Covenant</a></h4>
+                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat. <a class="label label-primary nodecor white" href="http://sevenx.de/demo/bootstrap-carousel/" target="_blank">More</a></p>
+                  </div>
+                </div><!-- End Item --> 
+                <div class="item">
+                  <img src="http://res.cloudinary.com/dlt8e13ma/image/upload/v1498202891/La_La_Land.jpg">
+                  <div class="carousel-caption">
+                    <h4><a href="#">La La Land</a></h4>
+                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat. <a class="label label-primary nodecor white" href="http://sevenx.de/demo/bootstrap-carousel/" target="_blank">More</a></p>
+                  </div>
+                </div><!-- End Item --> 
+              </div><!-- End Carousel Inner -->
+            <ul class="list-group col-sm-4">
+              <li data-target="#myCarousel" data-slide-to="0" class="list-group-item active"><h4>Pirates of the Caribbean: Dead Men tell no tales</h4></li>
+              <li data-target="#myCarousel" data-slide-to="1" class="list-group-item"><h4>Guardians of the Galaxy Vol.2</h4></li>
+              <li data-target="#myCarousel" data-slide-to="2" class="list-group-item"><h4>Alien: Covenant</h4></li>
+              <li data-target="#myCarousel" data-slide-to="3" class="list-group-item"><h4>La La Land</h4></li>
+            </ul>
+              <!-- Controls -->
+              <div class="carousel-controls">
+                <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                  <span class="glyphicon glyphicon-chevron-left"></span>
+                </a>
+                <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                  <span class="glyphicon glyphicon-chevron-right"></span>
+                </a>
+              </div>
+            </div><!-- End Carousel -->
+        </div><!-- end container -->
+      </div> <!-- col-md-12 -->
     </div> <!-- end row -->  
+  <div class="container">
+    <h1>Top Movies of the Month</h1>
     <div class="row">
       <% if !@peliculas.nil? %>   
         <% @peliculas.each do |peli| %>
@@ -62,6 +190,7 @@
       <%end%>    
     </div><!-- end row -->
     <div class="row">
+      <h1>Last Comments</h1>
       <div class="col-sm-12" style="margin-top:10px;padding-left:3%;padding-right:3%;">
         <% if !@comentarios.nil? %>   
           <table class="table table-hover table-striped" border="0">
@@ -69,7 +198,7 @@
               <th class="success"></th>     
               <th class="success">Name</th>   
               <th class="success">Comment</th>    
-              <th class="success">Data</th>   
+              <th class="success" style="width:95px;">Data</th>   
             </tbody> 
             <% @comentarios.each do |com| %>
               <tr> 

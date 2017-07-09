@@ -2,7 +2,14 @@ class Pelicula < ApplicationRecord
  
   has_many :comentarios, dependent: :destroy
   validates :director, presence: true, uniqueness: {message: "El nombre del Director ha de ser unico"}
-  	
+	
+	validates :name, presence: true
+	validates :name, uniqueness: true
+	validates :stars, :inclusion => 0..10
+	validates :stars, :numericality => {only_integer: true}
+	validates :year, :numericality =>  {only_integer: true}
+
+
 
 def self.search(search)
   where("name like ?", "%" + "%#{search}%" + "%")
