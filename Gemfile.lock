@@ -16,12 +16,6 @@ GIT
       sprockets (< 4.1)
 
 GIT
-  remote: git://github.com/robin850/nivo-rails.git
-  revision: 72f6beff1a54f65073fdbc65b9cae8e3754e93db
-  specs:
-    nivo-rails (1.0.1)
-
-GIT
   remote: https://github.com/codahale/bcrypt-ruby.git
   revision: 23b0517e20e7ddf2e733c1bcdb22b0b12166f042
   specs:
@@ -266,7 +260,6 @@ DEPENDENCIES
   jbuilder (~> 2.5)
   jquery-rails
   jquery-turbolinks
-  nivo-rails!
   pg (= 0.18.4)
   puma (~> 3.0)
   rails (~> 5.0.2)
