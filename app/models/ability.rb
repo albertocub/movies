@@ -31,7 +31,7 @@ class Ability
   
      user ||= AdminUser.new # guest user (not logged in)
 
-     if user.email == 1
+     if user.email == "admin@example.com"
       #if user.id == 1
        can :manage, :all
      else
