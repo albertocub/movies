@@ -15,7 +15,7 @@
           <%= text_field_tag :search, params[:search], class: "form-control",  :placeholder => "Buscar por Pelicula" %>
             <span class="input-group-btn">
               <%= button_tag(type: 'submit', class: "btn btn-default") do %>
-                <i class="fa fa-search" style=""></i>
+                <i class="fa fa-search"></i>
               <%end%>  
             </span>
         </div>
@@ -28,7 +28,7 @@
           <%= text_field_tag :search_year, params[:search_year], class: "form-control",  :placeholder => "Buscar por Año" %>
             <span class="input-group-btn">
               <%= button_tag(type: 'submit', class: "btn btn-default") do %>
-                <i class="fa fa-search" style=""></i>
+                <i class="fa fa-search"></i>
               <%end%>  
             </span>
         </div>
@@ -37,7 +37,7 @@
     <!-- BUSQUEDA POR EL GENERO EN UN DROPDOWN SELECT DE PELICULA --> 
     <div class="col-sm-6 col-xs-12">
         <%= form_tag(root_path, :method => "get", id: "genre") do %> 
-          <%= select_tag :search_genre, ("<option>&#xf015; Seleccionar Genero</option><br><option>ALL</option><option>ACTION</option><option>ADVENTURE</option><option>COMEDY</option><option>CRIME</option><option>DRAMA</option><option>HISTORICAL</option><option>HORROR</option><option>MUSICALS</option><option>SCIENCE-FICTION</option><option>WAR</option><option>WESTERNS</option>").html_safe, class: 'form-control colorselect pull-right', style:"width:235px; margin-right:5%; font-family: sans-serif, 'FontAwesome';", :onchange => "this.form.submit()"%> 
+          <%= select_tag :search_genre, ("<option>&#xf015; Seleccionar Genero</option><br><option>ALL</option><option>ACTION</option><option>ADVENTURE</option><option>ANIME</option><option>COMEDY</option><option>CRIME</option><option>DRAMA</option><option>HISTORICAL</option><option>HORROR</option><option>MUSICALS</option><option>SCIENCE-FICTION</option><option>WAR</option><option>WESTERNS</option>").html_safe, class: 'form-control colorselect pull-right', style:"width:235px; margin-right:5%; font-family: sans-serif, 'FontAwesome';", :onchange => "this.form.submit()"%> 
         <%end%> 
     </div> <!-- end col-sm-6 --> 
   </div> <!-- end row -->

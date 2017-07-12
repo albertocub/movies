@@ -1,3 +1,6 @@
+<style>
+.field {margin-top: 10px;}
+</style>
 <div class="estilosapp2">
     <!-- PARCIAL HEADER --> 
     <%= render "shared/header" %>
@@ -28,7 +31,7 @@
                             <%= f.text_field :stars, placeholder: "Stars", class:"form-control" %>
                         </div> 
                         <div class="field">
-                           <%= f.select :country, options_for_country, :prompt => 'Select Country', class:'form-control' %>
+                           <%= f.select :country, options_for_country, :prompt => 'Seleccionar el Pais', class:'form-control' %>
                         </div> 
                         <div class="field">
                             <%= f.text_field :year, placeholder: "Año", class:"form-control" %>
@@ -37,7 +40,8 @@
                             <%= f.text_field :revenue_amount, placeholder: "Recaudacion", class:"form-control" %>
                         </div> 
                          <div class="field">
-                            <%= f.text_field :genre, placeholder: "Genero", class:"form-control" %>
+                            
+                            <%= f.select :genre, options_for_genre, :prompt => 'Seleccionar el Genero', class:'form-control' %>
                         </div> 
                          <div class="field">
                             <%= f.text_field :precio, placeholder: "Precio", class:"form-control" %>
@@ -54,9 +58,10 @@
                     <ol>
                         <li>El nombre no puede estar vacio.</li>
                         <li>No permite guardar 2 nombres en la BD con el mismo nombre.</li>
-                        <li>El apellido no puede estar vacio.</li>
-                        <li>El email no puede estar vacio.</li>
-                        <li>El email tiene que tener el formato standard con el signo @</li>
+                        <li>La calificacion stars solo puede ser un rango 0 a 10.</li>
+                        <li>El año ha de ser numerico.</li>
+                        <li>La URL de la imagen no puede estar vacia.</li>
+                        <li>El genero no puede estar vacio.</li>
                     </ol>  
             </div> <!-- end box -->
             <div class="row">

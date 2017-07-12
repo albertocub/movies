@@ -8,7 +8,8 @@ class Pelicula < ApplicationRecord
 	validates :stars, :inclusion => 0..10
 	validates :stars, :numericality => {only_integer: true}
 	validates :year, :numericality =>  {only_integer: true}
-
+	validates :genre, presence: true
+	validates :url, presence: true
 
 
 def self.search(search)

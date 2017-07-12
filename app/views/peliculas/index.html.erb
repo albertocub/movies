@@ -1,4 +1,6 @@
-
+<style>
+img {width: 120px !important; height:120px !important;}
+</style>
   <!-- PARCIAL HEADER --> 
   <%= render "shared/header" %>
   <div class="container"> 
@@ -8,8 +10,9 @@
           <div class="alert bold size18"><i class="fa fa-home fa-1x color-teal"></i>&nbsp;MOVIES OPENING THIS WEEK</div>  
             <table class="table table-hover table-striped" border="0">
               <tbody>
-                <th class="success">Stars</th>      
-                <th class="success"><%= sort_link "id" %></th>     
+                <th class="success"><%= sort_link "id" %></th>                       
+                <th class="success" style="text-align: center;">Image</th>     
+                <th class="success" style="text-align: center;">Stars</th>      
                 <th class="success"><%= sort_link "name" %></th>      
                 <th class="success"><%= sort_link "actor" %></th>     
                 <th class="success"><%= sort_link "year" %></th>   
@@ -17,12 +20,19 @@
               </tbody> 
               <% @peliculas.each do |peli| %>
                 <tr>
-                  <td><span class="fa fa-star blue">&nbsp;</span><%= peli.stars %></td>
-                  <td><%= peli.id %></td>
-                  <td><%= peli.name %></td>
-                  <td><%= peli.actor %></td>
-                  <td><%= peli.year %></td>
-                  <td align="center" style="width:160px;">
+                  <td style="vertical-align:middle;" align="center"><%= peli.id %></td>
+                  <td style="vertical-align:middle;" align="center"><%= image_tag peli.url, class: "img-responsive" %></td>
+                  <td style="vertical-align:middle;" align="center">
+                    <%$i=0%>
+                    <%while $i < peli.stars do%>
+                      <span class="fa fa-star blue" title="<%= peli.stars %>" style="font-size: 17px;text-shadow:1px 2px 3px grey;"></span>
+                      <% $i+=1 %>
+                    <%end%>
+                  </td>
+                  <td style="vertical-align:middle;"><%= peli.name %></td>
+                  <td style="vertical-align:middle;"><%= peli.actor %></td>
+                  <td style="vertical-align:middle;"><%= peli.year %></td>
+                  <td align="center" style="width:160px;vertical-align:middle;">
                     <%= link_to '', pelicula_path(peli), :title => "Visualizar", :class => 'btn btn-sm btn-success fa fa-1x fa-search nodecor', style:"color: white;" %>
                     <%= link_to '', edit_pelicula_path(peli), :title => "Editar", :class => 'btn btn-sm btn-primary fa fa-1x fa-edit nodecor', style:"color: white;" %>
                     <%= link_to '', { action: :destroy, id: peli.id }, method: :delete, :title => "Eliminar",:class => 'btn btn-sm btn-danger fa fa-1x fa-close nodecor', style:"color: white;" %>

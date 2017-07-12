@@ -1,5 +1,5 @@
 module ApplicationHelper
-  def bootstrap_class_for(flash_type)
+def bootstrap_class_for(flash_type)
     case flash_type
     when "success"
       "alert-success"   # Green
@@ -12,17 +12,13 @@ module ApplicationHelper
     else
       flash_type.to_s
     end
-  end
-  def options_for_category  
-   categorias = {'Scifi'=>'Scifi','Comedia'=>'Comedia','Accion'=>'Accion',
-    'Aventura'=>'Aventura','Animacion'=>'Animacion' }
-  end
-  def options_for_genre  
-   categorias = {'ACTION'=>'ACTION','ADVENTURE'=>'ADVENTURE','COMEDY'=>'COMEDY',
+end
+def options_for_genre  
+   categorias = {'ALL'=>'ALL','ACTION'=>'ACTION','ADVENTURE'=>'ADVENTURE','ANIME'=>'ANIME','COMEDY'=>'COMEDY',
     'CRIME'=>'CRIME','DRAMA'=>'DRAMA','HISTORICAL'=>'HISTORICAL','HORROR'=>'HORROR',
     'MUSICALS'=>'MUSICALS','SCIENCE-FICTION'=>'SCIENCE-FICTION','WAR'=>'WAR','WESTERNS'=>'WESTERNS' }
-  end
-  def options_for_country
+end 
+def options_for_country
     nombres = {'Afganistán'=>'Afganistán','Albania'=>'Albania', 'Alemania'=>'Alemania',
     'Andorra'=>'Andorra','Angola'=>'Angola','Antártida'=>'Antartida',
     'Antigua y Barbuda'=>'Antigua y Barbuda','Arabia Saudí'=>'Arabia Saudi',
