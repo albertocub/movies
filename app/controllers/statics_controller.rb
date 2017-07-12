@@ -1,7 +1,9 @@
 class StaticsController < ApplicationController
 	#skip_before_action :authenticate_user!
   def index
-  	@peliculas = Pelicula.all
+  	#@peliculas = Pelicula.all
+    # Pagination
+    @peliculas = Pelicula.paginate( :page => params[:page], :per_page => 8 )
   	@comentarios = Comentario.all.order("created_at DESC").limit(6) 
     @busqueda=""
   	if params[:search]

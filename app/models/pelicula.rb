@@ -11,6 +11,7 @@ class Pelicula < ApplicationRecord
 	validates :genre, presence: true
 	validates :url, presence: true
 
+	self.per_page = 8
 
 def self.search(search)
   where("name like ?", "%" + "%#{search}%" + "%")

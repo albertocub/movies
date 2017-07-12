@@ -84,3 +84,5 @@ gem 'redis', '~> 3.3', '>= 3.3.3'
  
 gem 'execjs'
  
+# Pagination web pages
+gem 'will_paginate', '~> 3.1.0'
