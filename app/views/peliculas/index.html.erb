@@ -1,5 +1,5 @@
 <style>
-img {width: 120px !important; height:120px !important;}
+.imagenthumb {width: 120px !important; height:120px !important;}
 </style>
   <!-- PARCIAL HEADER --> 
   <%= render "shared/header" %>
@@ -21,7 +21,7 @@ img {width: 120px !important; height:120px !important;}
               <% @peliculas.each do |peli| %>
                 <tr>
                   <td style="vertical-align:middle;" align="center"><%= peli.id %></td>
-                  <td style="vertical-align:middle;" align="center"><%= image_tag peli.url, class: "img-responsive" %></td>
+                  <td style="vertical-align:middle;" align="center"><%= image_tag peli.url, class: "img-responsive imagenthumb" %></td>
                   <td style="vertical-align:middle;" align="center">
                     <%$i=0%>
                     <%while $i < peli.stars do%>
