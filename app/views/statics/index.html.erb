@@ -303,12 +303,14 @@ $(window).load(function() {
       <%end%>    
     </div><!-- end row -->
     <div class="row"> 
-      <div class="flickr_pagination">
-        <div class="page_info">
-          <%= page_entries_info @peliculas %>
+      <% if params[:search].nil? and params[:search_year].nil? and params[:search_genre].nil? %>
+        <div class="flickr_pagination">
+          <div class="page_info">
+            <%= page_entries_info @peliculas %>
+          </div>
+          <%= will_paginate @peliculas, :container => false, :previous_label => "&laquo;", :next_label => "&raquo;" %>
         </div>
-        <%= will_paginate @peliculas, :container => false, :previous_label => "&laquo;", :next_label => "&raquo;" %>
-      </div>
+      <%end%>
     </div><!-- end row -->      
     <div class="row">
       <h1>Last Comments</h1>
