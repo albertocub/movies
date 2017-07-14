@@ -38,7 +38,7 @@ class PeliculasController < ApplicationController
   private
   def pelicula_params
     params.require(:pelicula).permit(:name, :director, :actor, :email_contact,
-    :oscar, :category, :stars, :country, :year, :revenue_amount, :url, :genre, :precio)
+    :oscar, :category, :stars, :country, :year, :revenue_amount, :url, :genre, :precio, :movie_main)
   end  
   def sortable_columns
     ["id","name","actor","year"]

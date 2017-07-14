@@ -1,3 +1,6 @@
+<style>
+.field {margin-top: 10px;}
+</style>
 <div class="estilosapp2">
     <!-- PARCIAL HEADER --> 
     <%= render "shared/header" %>
@@ -36,6 +39,9 @@
                     <div class="field">
                         <%= f.text_field :url, placeholder: "URL Imagen", class:"form-control" %>
                     </div>      
+                     <div class="field">
+                        <%= f.text_field :movie_main, placeholder: "Video Principal Cabecera Sintaxis Link = https://www.youtube.com/embed/LINNK_YOUTUBE", class:"form-control" %>
+                    </div>  
                     <div class="field">
                         <%= f.submit "Guardar", class:"btn btn-sm btn-danger white pull-right", style:"margin-top: 15px;" %>
                     </div>
