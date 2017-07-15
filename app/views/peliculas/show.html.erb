@@ -47,13 +47,17 @@ img {width:150px;height:160px;}
             </div><!-- end col-sm-8 -->    
             <div class="col-sm-4">  
               <div class="row">  
-                <span class="size20" style="margin-left: 0px auto;"><%= @pelicula.stars %>&nbsp;Stars&nbsp;&nbsp;</span>
+                <span class="size20" style="float:right;"><%= @pelicula.stars %>&nbsp;Stars&nbsp;&nbsp;</span>
+              </div><!-- end row -->        
+              <div class="row margintop10">    
                 <%$i=0%>
                 <%while $i < @pelicula.stars do%>
-                  <span class="fa fa-star blue size16 opacidad" title="<%= @pelicula.stars %>" style="text-shadow:1px 2px 3px grey;"></span>
+                  <span class="fa fa-star blue size18 opacidad" title="<%= @pelicula.stars %>" style="text-shadow:1px 2px 3px grey; float:right;"></span>
                   <% $i+=1 %>
                 <%end%>
               </div><!-- end row -->      
+
+
             </div><!-- end col-sm-4 -->      
           </div><!-- end row -->   
            <div class="row pad10">    
