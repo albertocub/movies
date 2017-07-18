@@ -2,6 +2,8 @@
 *   I CAIXES BOX, BOXP, BOX2, BOX3
 */ 
 .pad10 {padding:10px;}
+.margintop10 {margin-top:10px;}
+.marginleftright {margin: 0px 1% !important;}
 .boxp {  
     background-color: white;
     margin-top: 9%;
@@ -39,12 +41,12 @@
 .box_show { 
     background-color: white;
     margin-top: 6%;
-    
+    margin:1%;
     height:100%;
 }
 .border {border: 1px solid grey;}
 .box_show_content {border: 1px solid grey;}
-.box_show_comment { padding:20px; } 
+.box_show_comment {padding: 20px !important;} 
 .fblack_title { 
     background-color: black;color: white;font-size: 24px;font-weight: bold;text-shadow: 1px 2px 3px grey;
     margin-top: -5px;padding:4%;border-top: 3px solid #34495E;

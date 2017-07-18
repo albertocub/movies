@@ -1,5 +1,6 @@
 <style>
-.description {height:250px;} 
+.description {height:100%;margin:2%;} 
+.descript-main {height: 182px;}
 .score {height:80px;text-align:right;}
 .fecha {display:none;}
 img {width:150px;height:160px;}
@@ -28,8 +29,17 @@ img {width:150px;height:160px;}
   background: linear-gradient(to right, #4ca2cd, #67B26F);  
 }
 .imgcartel {width: 100%; height: 520px;}
-.descript-main {height: 182px;}
 .opacidad:hover {opacity: 0.7;}
+#social-margin {margin-left: 28% !important;}
+/* SMARTHPHONE */
+@media (max-width: 580px) { 
+  .fblack_title {font-size:20px;}
+  .box_show_comment {padding: 40px !important;}
+}  
+/* TABLET */
+@media (max-width: 991px) {
+  #social-margin {margin-left: 17% !important;}
+} 
 </style>
 <div class="estilosapp2">
   <!-- PARCIAL HEADER --> 
@@ -37,29 +47,36 @@ img {width:150px;height:160px;}
   <div class="container"> 
     <div class="controladorej2"> 
       <div class="box_show"> 
-        <div class="row border">
-          <div class="row" style="margin-top: -1px;">
-            <iframe  src="<%= @pelicula.movie_main %>" frameborder="0" allowfullscreen="allowfullscreen" style="width:100%;height:360px;"></iframe>
+        <div class="row">
+
+          <div class="row marginleftright" style="margin-top: -1px;">
+            <iframe  src="<%= @pelicula.movie_main %>" frameborder="0" allowfullscreen="allowfullscreen" style="width:100%;height:360px;margin-top:10px;"></iframe>
           </div><!-- end row -->    
-          <div class="row fblack_title">
+
+          <div class="row fblack_title marginleftright" style="margin-top:-4px !important;">
+
             <div class="col-sm-8">  
               <div>&nbsp;<%= @pelicula.name %></div>
-            </div><!-- end col-sm-8 -->    
+            </div><!-- end col-sm-8 -->   
+
             <div class="col-sm-4">  
+
               <div class="row">  
                 <span class="size20" style="float:right;"><%= @pelicula.stars %>&nbsp;Stars&nbsp;&nbsp;</span>
-              </div><!-- end row -->        
+              </div><!-- end row -->   
+
               <div class="row margintop10">    
                 <%$i=0%>
                 <%while $i < @pelicula.stars do%>
                   <span class="fa fa-star blue size18 opacidad" title="<%= @pelicula.stars %>" style="text-shadow:1px 2px 3px grey; float:right;"></span>
                   <% $i+=1 %>
                 <%end%>
-              </div><!-- end row -->      
-
+              </div><!-- end row -->  
 
             </div><!-- end col-sm-4 -->      
           </div><!-- end row -->   
+
+           <!-- CONTENT -->
            <div class="row pad10">    
             <div style="margin-top:10px; height: 450px !important;"> 
               <div class="col-sm-4 col-md-4 col-xs-12">
@@ -67,64 +84,70 @@ img {width:150px;height:160px;}
                 <script language="javascript" src="http://www.elseptimoarte.net/recursos/cartelera/estrenos_1.php"></script>
               </div>
               <div class="col-sm-8 col-md-8 col-xs-12">
+
                 <div class="description">   
-                  <div class="descript-main"> 
+
+                  <div class="row"> 
                     <h2>Descripción</h2>
                     <hr>
                     <h4><%= @pelicula.name%> es una pelicula realizada en <%= @pelicula.country%> de <%= @pelicula.genre.capitalize%> del año <%= @pelicula.year%> y dirigida por <%= @pelicula.director%> y protagonizada por <%= @pelicula.actor%>.</h4>    
                     <% $nombre=@pelicula.name%>
                     <%= link_to 'Wikipedia', "https://es.wikipedia.org/wiki/"+$nombre, target: "_blank", class:"btn btn-primary btn-xs nodecor " %>
-                    <br><br />
-                  </div>
+                    <br></br>
+                  </div><!-- end row -->
+
                   <div class="row">
-                      <div class="col-sm-6 center-block">
-                        <span class="bold">Actor Principal:</span>&nbsp;&nbsp;<%= @pelicula.actor%><br />
-                        <span class="bold">Pais:</span>&nbsp;&nbsp;<%= @pelicula.country%><br />
-                        <span class="bold">Email:</span>&nbsp;&nbsp;<%= @pelicula.email_contact%><br />
-                        <span class="bold">Oscar:</span>&nbsp;&nbsp;<%= @pelicula.oscar%><br />
-                        <span class="bold">Año:</span>&nbsp;&nbsp;<%= @pelicula.year%><br />
-                     </div><!-- end col-sm-6 -->
-                     <div class="col-sm-6 center-block">
-                        <span class="bold">Ingresos obtenidos:</span>&nbsp;&nbsp;<%= @pelicula.revenue_amount%> $<br />
-                        <span class="bold">Genero:</span>&nbsp;&nbsp;<%= @pelicula.genre.capitalize%><br />
-                     </div><!-- end col-sm-6 -->
-                    </div><!-- end row 1 --> 
-                    <div class="row">
-                      <div class="col-sm-11 center-block" style="margin-left: 25px;">
-                        <div class="offer offer-radius offer-primary">
-                            <div class="shape">
-                              <div class="shape-text">Film</div>
-                            </div>
-                            <div class="offer-content">
-                              <h3 class="lead bold"><%= @pelicula.name %></h3>    
-                              <div class="col-sm-6">       
-                                <p class="lead">Last Offer is ...</p>
-                              </div>
-                              <div class="col-sm-6">       
-                                <div class="panel status panel-danger">
-                                  <div class="panel-heading">
-                                    <h1 class="panel-title text-center"><%= @pelicula.precio/100.0 %>E</h1>
-                                  </div>
-                                  <div class="panel-body text-center">                        
-                                    <strong>Last Price!!</strong>
-                                  </div>
-                                </div><!-- panel status -->            
-                              </div><!-- col-sm-6 -->   
-                            </div><!-- offer-content -->            
-                        </div><!-- offer -->            
-                      </div><!-- end col-sm-12 -->   
-                    </div><!-- end row 2 --> 
+                    <div class="col-sm-6">
+                      <span class="bold">Actor Principal:</span>&nbsp;&nbsp;<%= @pelicula.actor%><br />
+                      <span class="bold">Pais:</span>&nbsp;&nbsp;<%= @pelicula.country%><br />
+                      <span class="bold">Email:</span>&nbsp;&nbsp;<%= @pelicula.email_contact%><br />
+                      <span class="bold">Oscar:</span>&nbsp;&nbsp;<%= @pelicula.oscar%><br />
+                      <span class="bold">Año:</span>&nbsp;&nbsp;<%= @pelicula.year%><br />
+                    </div><!-- end col-sm-6 -->
+                    <div class="col-sm-6">
+                      <span class="bold">Ingresos obtenidos:</span>&nbsp;&nbsp;<%= @pelicula.revenue_amount%> $<br />
+                      <span class="bold">Genero:</span>&nbsp;&nbsp;<%= @pelicula.genre.capitalize%><br />
+                    </div><!-- end col-sm-6 -->
+                  </div><!-- end row --> 
+
+                  <div class="row">
+                    <div class="col-sm-11" style="margin-left: 2%;">
+                      <div class="offer offer-radius offer-primary">
+                          <div class="shape">
+                            <div class="shape-text">Film</div>
+                          </div>
+                          <div class="offer-content">
+                            <h3 class="lead bold"><%= @pelicula.name %></h3>    
+                            <div class="col-sm-6">       
+                              <p class="lead">Last Offer is ...</p>
+                            </div> <!-- col-sm-6 -->
+                            <div class="col-sm-6">       
+                              <div class="panel status panel-danger">
+                                <div class="panel-heading">
+                                  <h1 class="panel-title text-center"><%= @pelicula.precio/100.0 %>E</h1>
+                                </div>
+                                <div class="panel-body text-center">                        
+                                  <strong>Last Price!!</strong>
+                                </div>
+                              </div><!-- panel status -->            
+                            </div><!-- col-sm-6 -->   
+                          </div><!-- offer-content -->            
+                      </div><!-- offer -->            
+                    </div><!-- end col-sm-11 -->   
+                  </div><!-- end row --> 
+
                     <!-- VARIABLES SOCIAL BUTTONS -->
                     <% $face='https://www.facebook.com/sharer/sharer.php?u=http%3A//moviestoday.herokuapp.com/peliculas/'+@pelicula.id.to_s %>
                     <% $pinterest="https://pinterest.com/pin/create/button/?url=&media=http%3A//moviestoday.herokuapp.com/peliculas/"+@pelicula.id.to_s+"&description=MoviesToday Film "+@pelicula.name %>
                     <% $twitter="https://twitter.com/home?status=http%3A//moviestoday.herokuapp.com/peliculas/"+@pelicula.id.to_s %>
                     <% $google="https://plus.google.com/share?url=http%3A//moviestoday.herokuapp.com/peliculas/"+@pelicula.id.to_s %>
                     <% $linkedin="https://www.linkedin.com/shareArticle?mini=true&url=http%3A//moviestoday.herokuapp.com/peliculas/"+@pelicula.id.to_s+"&title="+@pelicula.name+"&summary=MoviesToday%20web%20dedicada%20los%20filmaniacos&source=" %>
+
                     <div class="row">  
                       <div class="col-sm-12">
                         <div class="social-gradient" style="height:110px;margin-top:12px;">
                           <h3 class="label label-default">SOCIAL SHARE</h3><br></br>
-                            <ul class="social-network social-circle" style="margin-left: 28% !important;">
+                            <ul id="social-margin" class="social-network social-circle social-network-margin" style="">
                               <li><a href="<%= $pinterest %>" class="icoRss" title="Pinterest"><i class="fa fa-pinterest"></i></a></li>
                               <li><a href="<%= $face %>" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
                               <li><a href="<%= $twitter %>" class="icoTwitter" title="Twitter"><i class="fa fa-twitter"></i></a></li>
@@ -132,40 +155,45 @@ img {width:150px;height:160px;}
                               <li><a href="<%= $linkedin %>" class="icoLinkedin" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
                             </ul>       
                         </div>  <!-- social-network -->
-                      </div><!-- end col -->           
-                    </div><!-- end row -->           
+                      </div><!-- end col-sm-12 -->           
+                    </div><!-- end row -->   
+
                 </div><!--end description -->
               </div> <!-- end col-sm-8 -->  
             </div> <!-- end fwhitesmoke -->  
-          </div><!-- end row -->    
+          </div><!-- end row -->  
+
           <div class="row">
             <div class="col-sm-12">
               <%= link_to 'Back to List', peliculas_path, class:"btn btn-sm btn-primary pull-right nodecor", style:"margin-right: 15px !important;" %>
             </div>
           </div> <!-- end row -->
-          <!-- BOX_SHOW_COMMENT -->
-          <div class="box_show_comment">  
-            <br>
-            <h2>Comentarios</h2>
-            <!-- PARCIAL COMENTARIOS -->
-            <%= render @pelicula.comentarios %>
-            <div class="panel panel-default panelmod1" style=" box-shadow: 1px 2px 3px gray;"> 
-              <span style="font-size: 2em; margin-left:-7px;margin-bottom: 10px;">Añadir comentarios</span>
-              </br>
-              <!-- PARCIAL FORM COMENTARIOS -->
-              <%= render "comentarios/form" %>
-              <br></br>
-            </div> <!-- end panel -->
-            <div class="margin20">  
-              <br>
-              <%= @pelicula.errors.full_messages.each do |message| %>
-                <div class="be-red white top-space text-center">
-                  * <%= message %>
-                </div>
-              <%end%>
-            </div> <!-- end margin20 -->
-          </div> <!-- end box_show_comment -->
 
+
+          <!-- BOX_SHOW_COMMENT -->
+          <div class="row">  
+            <div class="box_show_comment">  
+              <br>
+              <h2>Comentarios</h2>
+              <!-- PARCIAL COMENTARIOS -->
+              <%= render @pelicula.comentarios %>
+              <div class="panel panel-default panelmod1" style=" box-shadow: 1px 2px 3px gray;"> 
+                <span style="font-size: 2em; margin-left:-7px;margin-bottom: 10px;">Añadir comentarios</span>
+                </br>
+                <!-- PARCIAL FORM COMENTARIOS -->
+                <%= render "comentarios/form" %>
+                <br></br>
+              </div> <!-- end panel -->
+              <div class="margin20">  
+                <br>
+                <%= @pelicula.errors.full_messages.each do |message| %>
+                  <div class="be-red white top-space text-center">
+                    * <%= message %>
+                  </div>
+                <%end%>
+              </div> <!-- end margin20 -->
+            </div> <!-- end box_show_comment -->
+          </div> <!-- end row -->  
 
         </div> <!-- end box_show -->
       </div> <!-- end row -->

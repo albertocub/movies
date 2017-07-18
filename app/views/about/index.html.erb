@@ -1,18 +1,607 @@
 <style>
-    .box_email {  
-        margin: 0 auto !important;
-        margin:10% !important;
-        padding: 25px;
-        background-color: whitesmoke;
-        border: 1px solid gray;
-        border-radius: 2px;
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    .contawhite {width: 100% !important; margin-top: 8%; font-size: 15px; background-color:white; color:black; text-align:left; box-shadow: 2px 3px 4px grey; padding: 5% !important;}
+    .textshadow {text-shadow: 1px 2px 3px grey;}
+    body {
+      font-size: 62.5%;
+      background: #141414;
+      color: #ffdada;
+      position: relative;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
-    .textp { color:white; font-size: 16px; text-shadow: 2px 2px 4px #000000; }
+    body:before, body:after {
+      content: " ";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: url(http://static.asiawebdirect.com/m/phuket/portals/japan-hotels-ws/homepage/tokyo/shibuya/nightlife/pagePropertiesImage/Shibuya%20Nightlife.jpg);
+      background-size: cover;
+      background-position: center center;
+      height: 100vh;
+      z-index: -100;
+      -webkit-filter: blur(5px);
+      -moz-filter: blur(5px);
+      -o-filter: blur(5px);
+      filter: blur(5px);
+    }
+    body:after {
+      background: rgba(0, 0, 0, 0.6);
+      z-index: -90;
+    }
+    .wrapper {
+      height: 100%;
+      top: 0;
+      left: 0;
+      position: fixed;
+      text-align: center;
+      width: 100%;
+    }
+    .wrapper:before {
+      content: "";
+      display: inline-block;
+      height: 100%;
+      margin-right: 0;
+      vertical-align: middle;
+      width: 1px;
+    }
+
+    .info {
+      -webkit-animation: info-appear 3s 1;
+      -moz-animation: info-appear 3s 1;
+      -o-animation: info-appear 3s 1;
+      animation: info-appear 3s 1;
+    }
+
+    .infobox {
+      width: 600px;
+      display: inline-block;
+      position: relative;
+      top: 0;
+      vertical-align: middle;
+      text-align: center;
+    }
+    .infobox:before {
+      position: absolute;
+      left: 0;
+      top: 0;
+      content: " ";
+      background: white;
+      width: 0;
+      height: 0;
+      overflow: visible;
+      -webkit-transform: rotate(45deg);
+      -moz-transform: rotate(45deg);
+      -o-transform: rotate(45deg);
+      transform: rotate(45deg);
+      -webkit-transform-origin: left top;
+      -moz-transform-origin: left top;
+      -o-transform-origin: left top;
+      transform-origin: left top;
+      -webkit-animation: opening-left 2s 1;
+      -moz-animation: opening-left 2s 1;
+      -o-animation: opening-left 2s 1;
+      animation: opening-left 2s 1;
+    }
+    .infobox:after {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      content: " ";
+      background: white;
+      width: 0;
+      height: 0;
+      -webkit-transform: rotate(45deg);
+      -moz-transform: rotate(45deg);
+      -o-transform: rotate(45deg);
+      transform: rotate(45deg);
+      -webkit-transform-origin: right bottom;
+      -moz-transform-origin: right bottom;
+      -o-transform-origin: right bottom;
+      transform-origin: right bottom;
+      overflow: visible;
+      -webkit-animation: opening-right 2s 1;
+      -moz-animation: opening-right 2s 1;
+      -o-animation: opening-right 2s 1;
+      animation: opening-right 2s 1;
+    }
+    .infobox .title {
+      margin: 0 auto;
+      text-align: center;
+      position: relative;
+      margin-top: -30px;
+      margin-bottom: -30px;
+    }
+    .infobox .title h1 {
+      display: inline-block;
+      text-transform: uppercase;
+      font-size: 5em;
+      letter-spacing: 0.25em;
+      margin-right: -0.3em;
+      position: relative;
+      font-weight: 300;
+    }
+    .infobox .links {
+      margin-bottom: 10px;
+      margin-top: 50px;
+    }
+    .infobox .links a, .infobox .links a:hover, .infobox .links a:visited {
+      font-family: "Open Sans", sans-serif;
+      text-transform: uppercase;
+      text-decoration: none;
+      font-size: 2.2em;
+      font-weight: 300;
+      color: pink;
+      letter-spacing: 0.3em;
+      border: 1px solid pink;
+      padding-left: 0.3em;
+      -webkit-animation: bg 1.2s 2s ease-in-out 1;
+      -moz-animation: bg 1.2s 2s ease-in-out 1;
+      -o-animation: bg 1.2s 2s ease-in-out 1;
+      animation: bg 1.2s 2s ease-in-out 1;
+    }
+    .infobox .links a:nth-child(2), .infobox .links a:hover:nth-child(2), .infobox .links a:visited:nth-child(2) {
+      margin-left: 10px;
+      margin-right: 10px;
+      -webkit-animation-delay: 2.2s;
+      -moz-animation-delay: 2.2s;
+      -o-animation-delay: 2.2s;
+      animation-delay: 2.2s;
+    }
+    .infobox .links a:nth-child(3), .infobox .links a:hover:nth-child(3), .infobox .links a:visited:nth-child(3) {
+      -webkit-animation-delay: 2.4s;
+      -moz-animation-delay: 2.4s;
+      -o-animation-delay: 2.4s;
+      animation-delay: 2.4s;
+    }
+    .infobox .links a:hover {
+      background: yellow;
+      color: #141414;
+    }
+    .infobox .subtitle {
+      clear: both;
+      position: relative;
+      color: pink;
+    }
+    .infobox .subtitle:before, .infobox .subtitle:after {
+      content: " ";
+      position: absolute;
+      top: 0;
+      width: 30%;
+      height: 50%;
+      border-bottom: 1px dotted Crimson;
+    }
+    .infobox .subtitle:before {
+      left: 0;
+    }
+    .infobox .subtitle:after {
+      right: 0;
+    }
+    .infobox .subtitle span {
+      font-family: "Alegreya", serif;
+      font-size: 2.5em;
+      font-weight: 400;
+      font-style: italic;
+    }
+
+    .lantern {
+      position: relative;
+      display: inline-block;
+      width: 60px;
+      top: 5px;
+      margin-left: 20px;
+      margin-right: 20px;
+    }
+    .lantern .hook {
+      position: relative;
+      width: 10px;
+      height: 5px;
+      background: black;
+      margin: 0 auto;
+      margin-top: 10px;
+      -webkit-box-shadow: 0 55px 0 0px #000;
+      -moz-box-shadow: 0 55px 0 0px #000;
+      -o-box-shadow: 0 55px 0 0px #000;
+      box-shadow: 0 55px 0 0px #000; 
+    }
+    .lantern .circle {
+      width: 60px;
+      height: 50px;
+      border-radius: 50%;
+      background: #ff6666;
+      position: relative;
+      -webkit-box-shadow: 0 0 20px 0px white;
+      -moz-box-shadow: 0 0 20px 0px white;
+      -o-box-shadow: 0 0 20px 0px white;
+      box-shadow: 0 0 20px 0px white;
+    }
+    .lantern .circle:before {
+      content: " ";
+      position: absolute;
+      bottom: 0;
+      margin: auto;
+      left: 0;
+      right: 0;
+      background: transparent;
+      border-left: 2px solid rgba(204, 82, 82, 0.8);
+      border-right: 2px solid rgba(204, 82, 82, 0.8);
+      width: 15px;
+      height: 50px;
+      border-radius: 50%;
+      z-index: 1;
+    }
+    .lantern .circle:after {
+      content: " ";
+      position: absolute;
+      bottom: 0;
+      margin: auto;
+      left: 0;
+      right: 0;
+      background: transparent;
+      border-left: 2px solid rgba(204, 82, 82, 0.9);
+      border-right: 2px solid rgba(204, 82, 82, 0.9);
+      width: 40px;
+      height: 50px;
+      border-radius: 50%;
+      z-index: 1;
+    }
+    .lantern .circle .glow {
+      position: relative;
+      top: 50%;
+      -webkit-transform: translateY(-50%);
+      -moz-transform: translateY(-50%);
+      -o-transform: translateY(-50%);
+      transform: translateY(-50%);
+      width: 0;
+      height: 0;
+      background: rgba(255, 255, 0, 0.7);
+      -webkit-box-shadow: 0 0 15px 10px yellow;
+      -moz-box-shadow: 0 0 15px 10px yellow;
+      -o-box-shadow: 0 0 15px 10px yellow;
+      box-shadow: 0 0 15px 10px yellow;
+      border-radius: 50%;
+      margin: 0 auto;
+      -webkit-animation: lantern 2s infinite ease-in-out forwards;
+      -moz-animation: lantern 2s infinite ease-in-out forwards;
+      -o-animation: lantern 2s infinite ease-in-out forwards;
+      animation: lantern 2s infinite ease-in-out forwards;
+    }
+
+    @-webkit-keyframes opening-left {
+      from {
+        left: 30%;
+        top: 30%;
+        height: 0;
+        width: 1px;
+      }
+      50% {
+        left: 30%;
+        top: 30%;
+        height: 200px;
+        width: 1px;
+      }
+      90% {
+        left: 0;
+        top: 0;
+      }
+      to {
+        left: 0;
+        top: 0;
+        height: 0;
+      }
+    }
+    @-moz-keyframes opening-left {
+      from {
+        left: 30%;
+        top: 30%;
+        height: 0;
+        width: 1px;
+      }
+      50% {
+        left: 30%;
+        top: 30%;
+        height: 200px;
+        width: 1px;
+      }
+      90% {
+        left: 0;
+        top: 0;
+      }
+      to {
+        left: 0;
+        top: 0;
+        height: 0;
+      }
+    }
+    @-o-keyframes opening-left {
+      from {
+        left: 30%;
+        top: 30%;
+        height: 0;
+        width: 1px;
+      }
+      50% {
+        left: 30%;
+        top: 30%;
+        height: 200px;
+        width: 1px;
+      }
+      90% {
+        left: 0;
+        top: 0;
+      }
+      to {
+        left: 0;
+        top: 0;
+        height: 0;
+      }
+    }
+    @keyframes opening-left {
+      from {
+        left: 30%;
+        top: 30%;
+        height: 0;
+        width: 1px;
+      }
+      50% {
+        left: 30%;
+        top: 30%;
+        height: 200px;
+        width: 1px;
+      }
+      90% {
+        left: 0;
+        top: 0;
+      }
+      to {
+        left: 0;
+        top: 0;
+        height: 0;
+      }
+    }
+    @-webkit-keyframes opening-right {
+      from {
+        right: 30%;
+        bottom: 30%;
+        height: 0;
+        width: 1px;
+      }
+      50% {
+        right: 30%;
+        bottom: 30%;
+        height: 200px;
+        width: 1px;
+      }
+      90% {
+        right: 0;
+        bottom: 0;
+      }
+      to {
+        right: 0;
+        bottom: 0;
+        height: 0;
+      }
+    }
+    @-moz-keyframes opening-right {
+      from {
+        right: 30%;
+        bottom: 30%;
+        height: 0;
+        width: 1px;
+      }
+      50% {
+        right: 30%;
+        bottom: 30%;
+        height: 200px;
+        width: 1px;
+      }
+      90% {
+        right: 0;
+        bottom: 0;
+      }
+      to {
+        right: 0;
+        bottom: 0;
+        height: 0;
+      }
+    }
+    @-o-keyframes opening-right {
+      from {
+        right: 30%;
+        bottom: 30%;
+        height: 0;
+        width: 1px;
+      }
+      50% {
+        right: 30%;
+        bottom: 30%;
+        height: 200px;
+        width: 1px;
+      }
+      90% {
+        right: 0;
+        bottom: 0;
+      }
+      to {
+        right: 0;
+        bottom: 0;
+        height: 0;
+      }
+    }
+    @keyframes opening-right {
+      from {
+        right: 30%;
+        bottom: 30%;
+        height: 0;
+        width: 1px;
+      }
+      50% {
+        right: 30%;
+        bottom: 30%;
+        height: 200px;
+        width: 1px;
+      }
+      90% {
+        right: 0;
+        bottom: 0;
+      }
+      to {
+        right: 0;
+        bottom: 0;
+        height: 0;
+      }
+    }
+    @-webkit-keyframes info-appear {
+      from {
+        opacity: 0;
+        filter: blur(3px);
+      }
+      50% {
+        opacity: 0;
+        filter: blur(2px);
+      }
+      to {
+        opacity: 1;
+      }
+    }
+    @-moz-keyframes info-appear {
+      from {
+        opacity: 0;
+        filter: blur(3px);
+      }
+      50% {
+        opacity: 0;
+        filter: blur(2px);
+      }
+      to {
+        opacity: 1;
+      }
+    }
+    @-o-keyframes info-appear {
+      from {
+        opacity: 0;
+        filter: blur(3px);
+      }
+      50% {
+        opacity: 0;
+        filter: blur(2px);
+      }
+      to {
+        opacity: 1;
+      }
+    }
+    @keyframes info-appear {
+      from {
+        opacity: 0;
+        filter: blur(3px);
+      }
+      50% {
+        opacity: 0;
+        filter: blur(2px);
+      }
+      to {
+        opacity: 1;
+      }
+    }
+    @-webkit-keyframes bg {
+      from {
+        background: yellow;
+        color: #141414;
+      }
+      to {
+        background: transparent;
+        color: pink;
+      }
+    }
+    @-moz-keyframes bg {
+      from {
+        background: yellow;
+        color: #141414;
+      }
+      to {
+        background: transparent;
+        color: pink;
+      }
+    }
+    @-o-keyframes bg {
+      from {
+        background: yellow;
+        color: #141414;
+      }
+      to {
+        background: transparent;
+        color: pink;
+      }
+    }
+    @keyframes bg {
+      from {
+        background: yellow;
+        color: #141414;
+      }
+      to {
+        background: transparent;
+        color: pink;
+      }
+    }
 </style>
-<div class="box_email">
-    <h1>Thanks user <span style="color:red;">USERNAME</span> for signing up! </h1>
-    <h2>with email <span style="color:blue;">EMAIL</span> width date <span style="color:teal;">DATE</span> </h2>
-    <p class="textp">Thanks for joining and have a great day! Now sign in and do
-awesome things!</p>
-</div>
+<!-- PARCIAL HEADER --> 
+<div style:" font-size: 100% !important; position: fixed !important;"><%= render "shared/header" %></div>
+<!-- BACKGROUND GRADIENT WEBPAGE -->
+ <div class="wrapper">
+  <div class="infobox">
+    <div class="info">
+      <div class="subtitle">
+        <span>designer by </span>
+      </div>
+      <div class="title">
+        <div class="lantern">
+          <div class="hook">
+          </div>
+          <div class="circle">
+            <div class="glow">
+            </div>
+          </div>
+        </div>
+        <h1>Albert Cuberes</h1>
+        <div class="lantern">
+          <div class="hook">
+          </div>
+          <div class="circle">
+            <div class="glow">
+            </div>
+          </div>
+        </div>
+      </div>
+     <div class="subtitle">
+        <br><br/><span>developer frontend & backend</span>
+      </div>
+       
+      <div class="links"> 
+        <a href="#" data-toggle="modal" >about</a>
+        <a href="#">github</a>
+        <a href="#">resume</a>
+      </div>
+    </div><!-- info -->
+
+   
+ 
+    
+    <div id="modal_form_category" class="contawhite modal " tabindex="-1" role="dialog" aria-hidden="true" style="opacity: none;">
+      <div class="modal-header"><h2 class="textshadow">About</h2><a class="close btn btn-primary btn-lg" data-dismiss="modal">x</a></div>
+      <div class="modal-body">
+        <hr/>
+        <p>Este website esta realizado en Ruby on Rails proyecto personal del curso #YouthCanDoIt2020 dentro del servicio Heroku que es una plataforma tipo cloud que esta enfocado en la plataforma (PaaS) que soporta distintos lenguajes de programación para realizacion de apps web dinamicas. </p>
+        <p>Este website esta dedicado a los filmaniacos y dentro podemos obtener una pequeña aplicación de desarrollo en Ruby con diversas utilidades entre las diversas gemas utilizadas dentro de la aplicacion BCrypt, Devise, CanCanCan, ActiveAdmin, Sidekiq, Sendgrid, Stripe, Will_Paginate, JQuery, Bootstrap, Font-Awesome, SQLite3, PostgreSQL, Bootstrap-Sass, etc. </p>
+        <h2 class="textshadow fgrey">Especificaciones</h2>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+         <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+      </div>
+      <div class="model-footer">footer</div>
+    </div> 
+   
+</div><!-- infobox -->  
+</div><!-- wrapper -->
