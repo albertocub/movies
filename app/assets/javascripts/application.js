@@ -15,4 +15,10 @@
 //= require jquery.turbolinks
 //= require turbolinks
 //= require bootstrap-sprockets
+//= require bootstrap/modal
 //= require_tree .
+
+
+$(document).ready(function() {
+   $('#modal-window').modal('show');
+});

@@ -1,6 +1,5 @@
 <style>
-    .contawhite {width: 100% !important; margin-top: 8%; font-size: 15px; background-color:white; color:black; text-align:left; box-shadow: 2px 3px 4px grey; padding: 5% !important;}
-    .textshadow {text-shadow: 1px 2px 3px grey;}
+    .textshadow {text-shadow: 1px 1px 2px grey !important;}
     body {
       font-size: 62.5%;
       background: #141414;
@@ -45,14 +44,12 @@
       vertical-align: middle;
       width: 1px;
     }
-
     .info {
       -webkit-animation: info-appear 3s 1;
       -moz-animation: info-appear 3s 1;
       -o-animation: info-appear 3s 1;
       animation: info-appear 3s 1;
     }
-
     .infobox {
       width: 600px;
       display: inline-block;
@@ -126,7 +123,6 @@
       margin-top: 50px;
     }
     .infobox .links a, .infobox .links a:hover, .infobox .links a:visited {
-      font-family: "Open Sans", sans-serif;
       text-transform: uppercase;
       text-decoration: none;
       font-size: 2.2em;
@@ -178,12 +174,11 @@
       right: 0;
     }
     .infobox .subtitle span {
-      font-family: "Alegreya", serif;
+     
       font-size: 2.5em;
       font-weight: 400;
       font-style: italic;
     }
-
     .lantern {
       position: relative;
       display: inline-block;
@@ -266,7 +261,6 @@
       -o-animation: lantern 2s infinite ease-in-out forwards;
       animation: lantern 2s infinite ease-in-out forwards;
     }
-
     @-webkit-keyframes opening-left {
       from {
         left: 30%;
@@ -543,9 +537,27 @@
         color: pink;
       }
     }
+   .modal {width: 100%; font-size: 100% !important; color: black; text-align: justify;}
+   .modal-body {font-size: 14px !important; color:black; padding: 5%; }
+   .modal-header-background {
+      background: #2c3e50;  
+      background: -webkit-linear-gradient(to right, #3498db, #2c3e50);   
+      background: linear-gradient(to right, #3498db, #2c3e50);  
+    }
+   .modal-footer-background {
+      background: #304352;  
+      background: -webkit-linear-gradient(to right, #d7d2cc, #304352);  
+      background: linear-gradient(to right, #d7d2cc, #304352); 
+    }
+    .boto {padding: 2px 10px; background-color: #A9D0F5; border: 1px solid grey; border-radius: 5px; margin-top: 3px !important; margin-bottom: 3px !important; box-shadow: 1px 1px 1px grey;}
+    .boto:hover {opacity: 0.7;}
+    /* VERSION PC */
+    @media (max-width: 1200px) {
+        
+    }
 </style>
 <!-- PARCIAL HEADER --> 
-<div style:" font-size: 100% !important; position: fixed !important;"><%= render "shared/header" %></div>
+<div style:" font-size: 100% !important;  position: fixed !important; opacity: 1;filter: none;"><%= render "shared/header" %></div>
 <!-- BACKGROUND GRADIENT WEBPAGE -->
  <div class="wrapper">
   <div class="infobox">
@@ -574,34 +586,40 @@
       </div>
      <div class="subtitle">
         <br><br/><span>developer frontend & backend</span>
-      </div>
-       
+      </div> 
       <div class="links"> 
-        <a href="#" data-toggle="modal" >about</a>
+        <a href="#modal-window" data-toggle="modal" >about</a>
         <a href="#">github</a>
         <a href="#">resume</a>
       </div>
-    </div><!-- info -->
-
-   
- 
-    
-    <div id="modal_form_category" class="contawhite modal " tabindex="-1" role="dialog" aria-hidden="true" style="opacity: none;">
-      <div class="modal-header"><h2 class="textshadow">About</h2><a class="close btn btn-primary btn-lg" data-dismiss="modal">x</a></div>
-      <div class="modal-body">
-        <hr/>
-        <p>Este website esta realizado en Ruby on Rails proyecto personal del curso #YouthCanDoIt2020 dentro del servicio Heroku que es una plataforma tipo cloud que esta enfocado en la plataforma (PaaS) que soporta distintos lenguajes de programación para realizacion de apps web dinamicas. </p>
-        <p>Este website esta dedicado a los filmaniacos y dentro podemos obtener una pequeña aplicación de desarrollo en Ruby con diversas utilidades entre las diversas gemas utilizadas dentro de la aplicacion BCrypt, Devise, CanCanCan, ActiveAdmin, Sidekiq, Sendgrid, Stripe, Will_Paginate, JQuery, Bootstrap, Font-Awesome, SQLite3, PostgreSQL, Bootstrap-Sass, etc. </p>
-        <h2 class="textshadow fgrey">Especificaciones</h2>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-         <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-      </div>
-      <div class="model-footer">footer</div>
-    </div> 
-   
+    </div><!-- info --> 
 </div><!-- infobox -->  
 </div><!-- wrapper -->
+<!-- Modal -->
+<div class="modal" id="modal-window" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" 
+style=" ">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header modal-header-background">
+        <button type="button" class="close " data-dismiss="modal" aria-hidden="true" style="color:white;">&times;</button>
+        <h3 class="modal-title white text-shadow" id="myModalLabel">About</h3>
+      </div>
+      <div class="modal-body"> 
+      <p>Este website esta realizado en <b>Ruby on Rails</b> proyecto personal del <b>curso #YouthCanDoIt2020</b> dentro del servicio <b>Heroku</b> que es una servicio tipo cloud que esta enfocado en la <b>plataforma (PaaS)</b> que soporta distintos lenguajes de programación para la realizacion de <b>apps web dinamicas.</b> </p>
+      <p>Este <b>website</b> esta dedicado a los <b>filmaniacos</b> y dentro podemos obtener una pequeña aplicación de desarrollo en <b>Ruby</b> con diversas utilidades entre las diversas gemas mas utilizadas dentro de la aplicacion podemos destacar: </p>
+      <br/>
+      <span class="boto">BCrypt</span> <span class="boto">Devise</span> <span class="boto">CanCanCan</span> <span class="boto">ActiveAdmin</span> <span class="boto">Sidekiq</span> <span class="boto">Sendgrid</span> <span class="boto">Stripe</span> <span class="boto">Will_Paginate</span> <span class="boto">JQuery</span> <span class="boto">Bootstrap</span> <span class="boto">Font-Awesome</span> <span class="boto">SQLite3</span> <span class="boto">PostgreSQL</span> <span class="boto">Bootstrap-Sass</span> <span class="boto">etc.</span><br/>
+      <h2 class="textshadow black">Especificaciones</h2>
+      <ul>
+      <li>Al <b>registrarnos SignUp</b> nos envia un mensaje de bienvenida al email que hemos introducido. </li>
+      <li>Dentro de <b>Settings/Select Movies</b> al comprar una <b>pelicula o subscribirnos</b> nos envia a la pasarela de pagos de <b>Stripe</b> al pedirnos la tarjeta de credito <b>"Pay with Card"</b> podemos introducir la tarjeta de credito de ejemplo <b>numero de tarjeta: 4242 4242 4242 4242</b> despues quedara registrado el pago de ejemplo dentro de la app. </li>
+      <li>Añadido <b>paginacion</b> a la pagina principal.</li>
+      <li>Añadido <b>busqueda por pelicula, año y genero</b> en la pagina principal.</li>
+    </ul>
+      </div>
+      <div class="modal-footer modal-footer-background">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button> 
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
